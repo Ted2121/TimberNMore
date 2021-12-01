@@ -1,6 +1,10 @@
 package Model;
 
+import ConsoleUI.Utility;
+
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Random;
 
 public class Item {
     // Codes that start with T refer to Timber department
@@ -9,7 +13,7 @@ public class Item {
     private String locationCode;
     private char location;
     private int shelfNumber;
-    private static int itemId = 0;
+    private static int itemId = 1;
 
     private String itemName;
     private BigDecimal price;
@@ -24,7 +28,7 @@ public class Item {
                 boolean applyDiscount,
                 BigDecimal price) {
 
-        this.locationCode = String.valueOf(location + shelfNumber + itemId);
+        this.locationCode = location + String.valueOf(shelfNumber) + itemId;
         this.location = location;
         this.shelfNumber = shelfNumber;
         this.itemName = itemName;
@@ -34,8 +38,85 @@ public class Item {
         }else {
             this.price = price;
         }
-        this.barcode = (int)Math.round(Math.random()*1000000);
+        this.barcode = Utility.getRandom(100000, 999999);
+        this.itemId++;
 
+    }
 
+    public String getLocationCode() {
+        return locationCode;
+    }
+
+    public void setLocationCode(String locationCode) {
+        this.locationCode = locationCode;
+    }
+
+    public char getLocation() {
+        return location;
+    }
+
+    public void setLocation(char location) {
+        this.location = location;
+    }
+
+    public int getShelfNumber() {
+        return shelfNumber;
+    }
+
+    public void setShelfNumber(int shelfNumber) {
+        this.shelfNumber = shelfNumber;
+    }
+
+    public static int getItemId() {
+        return itemId;
+    }
+
+    public static void setItemId(int itemId) {
+        Item.itemId = itemId;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public int getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(int barcode) {
+        this.barcode = barcode;
+    }
+
+    public boolean isApplyDiscount() {
+        return applyDiscount;
+    }
+
+    public void setApplyDiscount(boolean applyDiscount) {
+        this.applyDiscount = applyDiscount;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "locationCode='" + locationCode + '\'' +
+                ", location=" + location +
+                ", shelfNumber=" + shelfNumber +
+                ", itemName='" + itemName + '\'' +
+                ", price=" + price.setScale(2, RoundingMode.FLOOR) +
+                ", barcode=" + barcode +
+                ", applyDiscount=" + applyDiscount +
+                '}';
     }
 }
