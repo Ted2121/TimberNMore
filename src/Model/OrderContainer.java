@@ -21,13 +21,19 @@ public class OrderContainer {
     }
 
     // If order is null, we create a new order, otherwise we return the existing one
+    // we use this method to get the current order while making sure we don't get a null object
+
     public Order getOrder(){
-        if(order == null)
-            order = new Order();
-        return order;
+        if(this.order == null)
+            this.order = new Order();
+        return this.order;
     }
 
-    public void createOrder(){
-        Order order = new Order();
+
+    // This method is used when we start a new order,
+    // and we want to override the reference to the last order
+    // TODO make sure you store the last order in the orders ArrayList first
+    public void createNewOrder(){
+        this.order = new Order();
     }
 }
