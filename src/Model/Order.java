@@ -1,31 +1,39 @@
 package Model;
 
-
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Order {
-    private Item item;
+
+    private ArrayList<Item> itemsInOrder;
     private Customer customer;
     private static int orderId = 1;
     private String orderDateAndTime;
     private DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    private BigDecimal totalPrice;
 
-    public Order(Item item, Customer customer) {
-        this.item = item;
-        this.customer = customer;
+    public Order() {
+
         // We set the orderDateAndTime to the formatted LocalDateTime.now()
         this.orderDateAndTime = LocalDateTime.now().format(format);
         // We increment orderId every time we create a new order
         orderId++;
     }
 
-    public Item getItem() {
-        return item;
-    }
 
-    public void setItem(Item item) {
-        this.item = item;
+//    public Item getItem() {
+//        return item;
+//    }
+//
+//    public void setItem(Item item) {
+//        this.item = item;
+//    }
+
+    // Adds items to the order
+    public void addItemsInOrder(Item item){
+        itemsInOrder.add(item);
     }
 
     public Customer getCustomer() {
@@ -63,7 +71,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "item=" + item +
+                //"item=" + item +
                 ", customer=" + customer +
                 ", orderDateAndTime='" + orderDateAndTime + '\'' +
                 ", format=" + format +

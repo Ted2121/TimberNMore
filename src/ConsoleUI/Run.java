@@ -8,11 +8,12 @@ public class Run {
 
         Database database = new Database();
 
-        System.out.println();
 
-        System.out.println(database.getItem1().getItemName());
-        System.out.println(database.getItem1().toString());
-        System.out.println(database.getItem2().toString());
-        System.out.println(database.getItem3().toString());
+//        System.out.println();
+//
+//        System.out.println(database.getItem1().getItemName());
+//        System.out.println(database.getItem1().toString());
+//        System.out.println(database.getItem2().toString());
+//        System.out.println(database.getItem3().toString());
     }
 }

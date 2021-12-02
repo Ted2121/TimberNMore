@@ -4,7 +4,6 @@ import ConsoleUI.Utility;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Random;
 
 public class Item {
     // Codes that start with T refer to Timber department
@@ -34,12 +33,12 @@ public class Item {
         this.itemName = itemName;
         this.applyDiscount = applyDiscount;
         if(applyDiscount){
-           this.price = price.multiply(new BigDecimal(discountModifier));
+           this.price = price.subtract(price.multiply(new BigDecimal(discountModifier)));
         }else {
             this.price = price;
         }
         this.barcode = Utility.getRandom(100000, 999999);
-        this.itemId++;
+        itemId++;
 
     }
 
@@ -114,7 +113,7 @@ public class Item {
                 ", location=" + location +
                 ", shelfNumber=" + shelfNumber +
                 ", itemName='" + itemName + '\'' +
-                ", price=" + price.setScale(2, RoundingMode.FLOOR) +
+                ", price=" + price.setScale(2, RoundingMode.CEILING) +
                 ", barcode=" + barcode +
                 ", applyDiscount=" + applyDiscount +
                 '}';
