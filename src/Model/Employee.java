@@ -87,14 +87,14 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", accessType=" + accessType +
-                ", turnover=" + turnover +
-                ", jobPosition='" + jobPosition + '\'' +
-                '}';
+        return "Employee: " + "\n-----------------------------------\n" +
+                "firstName: " + firstName + "\n" +
+                "lastName: " + lastName + "\n" +
+                "username: " + username + "\n" +
+                "password: " + password + "\n" +
+                "accessType: " + accessType + "\n" +
+                "turnover: " + turnover + "\n" +
+                "jobPosition: " + jobPosition + "\n" +
+                "";
     }
 }

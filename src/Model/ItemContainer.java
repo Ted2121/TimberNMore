@@ -20,4 +20,8 @@ public class ItemContainer {
     public void addItemToInventory(Item item){
         inventory.add(item);
     }
+
+    public Item searchForItem(Item item){
+        return null;
+    }
 }

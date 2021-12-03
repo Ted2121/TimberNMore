@@ -19,6 +19,7 @@ public class Database {
     Item item4 = new Item('D', 14, "Chair", true, new BigDecimal("10.0"));
     Item item5 = new Item('T', 15, "Table", true, new BigDecimal("200.0"));
 
+
     public void addItemsToInContainer(){
         itemController.addItemToInventory(item1);
         itemController.addItemToInventory(item2);
@@ -58,7 +59,12 @@ public class Database {
     // TODO
     // Will get called at the start of the application
     public void populateDatabase(){
+
         addItemsToInContainer();
+        item1.setQuantity(2);
+        item3.setQuantity(3);
+        System.out.println(item1);
+        System.out.println(item3);
         addEmployeesToContainer();
         addCustomersToContainer();
     }

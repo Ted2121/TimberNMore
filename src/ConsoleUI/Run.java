@@ -10,7 +10,7 @@ public class Run {
         Database database = new Database();
         OrderController orderController = new OrderController();
 
-
+    database.populateDatabase();
 
 //        System.out.println();
 //

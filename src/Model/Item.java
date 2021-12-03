@@ -17,6 +17,8 @@ public class Item {
     private String itemName;
     private BigDecimal price;
 
+    private int quantity = 1;
+
     private int barcode;
     private boolean applyDiscount;
     private double discountModifier = 0.1;
@@ -106,16 +108,36 @@ public class Item {
         this.applyDiscount = applyDiscount;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    // Special setter that also changes price in relation to quantity
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+        this.price = this.price.multiply(new BigDecimal(getQuantity()).setScale(0, RoundingMode.FLOOR));
+    }
+
+    public double getDiscountModifier() {
+        return discountModifier;
+    }
+
+    public void setDiscountModifier(double discountModifier) {
+        this.discountModifier = discountModifier;
+    }
+
     @Override
     public String toString() {
-        return "Item{" +
-                "locationCode='" + locationCode + '\'' +
-                ", location=" + location +
-                ", shelfNumber=" + shelfNumber +
-                ", itemName='" + itemName + '\'' +
-                ", price=" + price.setScale(2, RoundingMode.CEILING) +
-                ", barcode=" + barcode +
-                ", applyDiscount=" + applyDiscount +
-                '}';
+        return "Item: " + "\n-----------------------------------\n" +
+                "locationCode: " + locationCode + "\n" +
+                "location: " + location + "\n" +
+                "shelfNumber: " + shelfNumber + "\n" +
+                "itemName: " + itemName + "\n" +
+                "price: " + price.setScale(2, RoundingMode.CEILING) + "\n" +
+                "quantity: " + quantity + "\n" +
+                "barcode: " + barcode + "\n" +
+                "applyDiscount: " + applyDiscount + "\n" +
+                "discountModifier: " + discountModifier + "\n" +
+                "";
     }
 }
