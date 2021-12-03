@@ -65,6 +65,7 @@ public class Database {
         item3.setQuantity(3);
         System.out.println(item1);
         System.out.println(item3);
+        System.out.println(item2);
         addEmployeesToContainer();
         addCustomersToContainer();
     }

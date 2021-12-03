@@ -12,8 +12,8 @@ public class Item {
     private String locationCode;
     private char location;
     private int shelfNumber;
-    private static int itemId = 1;
-
+    private static int globalItemId = 1;
+    private int itemId;
     private String itemName;
     private BigDecimal price;
 
@@ -29,6 +29,7 @@ public class Item {
                 boolean applyDiscount,
                 BigDecimal price) {
 
+        this.itemId = globalItemId;
         this.locationCode = location + String.valueOf(shelfNumber) + itemId;
         this.location = location;
         this.shelfNumber = shelfNumber;
@@ -40,7 +41,7 @@ public class Item {
             this.price = price;
         }
         this.barcode = Utility.getRandom(100000, 999999);
-        itemId++;
+        globalItemId++;
 
     }
 
@@ -68,12 +69,8 @@ public class Item {
         this.shelfNumber = shelfNumber;
     }
 
-    public static int getItemId() {
+    public int getItemId() {
         return itemId;
-    }
-
-    public static void setItemId(int itemId) {
-        Item.itemId = itemId;
     }
 
     public String getItemName() {
@@ -132,8 +129,9 @@ public class Item {
                 "locationCode: " + locationCode + "\n" +
                 "location: " + location + "\n" +
                 "shelfNumber: " + shelfNumber + "\n" +
+                "itemId: " + itemId + "\n" +
                 "itemName: " + itemName + "\n" +
-                "price: " + price.setScale(2, RoundingMode.CEILING) + "\n" +
+                "price: " + price + "\n" +
                 "quantity: " + quantity + "\n" +
                 "barcode: " + barcode + "\n" +
                 "applyDiscount: " + applyDiscount + "\n" +
