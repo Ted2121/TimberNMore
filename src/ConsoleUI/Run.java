@@ -1,4 +1,5 @@
 package ConsoleUI;
+import Controller.OrderController;
 import Model.Database;
 import Model.Database.*;
 import Model.Employee;
@@ -7,6 +8,8 @@ public class Run {
     public static void main(String[] args) {
 
         Database database = new Database();
+        OrderController orderController = new OrderController();
+
 
 
 //        System.out.println();

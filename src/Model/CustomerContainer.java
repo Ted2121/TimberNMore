@@ -17,4 +17,8 @@ public class CustomerContainer {
             instance = new CustomerContainer();
         return instance;
     }
+
+    public void addCustomer(Customer customer){
+        customers.add(customer);
+    }
 }

@@ -19,7 +19,7 @@ public class Item {
 
     private int barcode;
     private boolean applyDiscount;
-    private static final double discountModifier = 0.1;
+    private double discountModifier = 0.1;
 
     public Item(char location,
                 int shelfNumber,

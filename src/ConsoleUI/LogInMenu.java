@@ -1,6 +1,6 @@
 package ConsoleUI;
 
-public class LogInMenu implements IMenu{
+public class LogInMenu implements Menu {
 
 
 

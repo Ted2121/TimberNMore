@@ -1,6 +1,6 @@
 package ConsoleUI;
 
-public class MainMenu implements IMenu{
+public class MainMenu implements Menu {
 
     @Override
     public void runMenu() {

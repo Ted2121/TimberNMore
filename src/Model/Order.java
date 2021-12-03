@@ -23,13 +23,6 @@ public class Order {
     }
 
 
-//    public Item getItem() {
-//        return item;
-//    }
-//
-//    public void setItem(Item item) {
-//        this.item = item;
-//    }
 
     // Adds items to the order
     public void addItemsInOrder(Item item){
@@ -68,13 +61,14 @@ public class Order {
         this.format = format;
     }
 
+
     @Override
     public String toString() {
-        return "Order{" +
-                //"item=" + item +
-                ", customer=" + customer +
-                ", orderDateAndTime='" + orderDateAndTime + '\'' +
-                ", format=" + format +
-                '}';
+        return "Order: " + "\n-----------------------------------" +
+                "itemsInOrder: " + itemsInOrder + "\n" +
+                "customer: " + customer + "\n" +
+                "orderDateAndTime: " + orderDateAndTime + "\n" +
+                "totalPrice: " + totalPrice + "\n" +
+                "";
     }
 }

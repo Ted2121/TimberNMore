@@ -32,8 +32,14 @@ public class OrderContainer {
 
     // This method is used when we start a new order,
     // and we want to override the reference to the last order
-    // TODO make sure you store the last order in the orders ArrayList first
+    // Make sure you store the last order in the orders ArrayList first
     public void createOrder(){
         this.order = new Order();
     }
+
+    public void addOrderToDatabase(Order order){
+        orders.add(order);
+    }
+
+
 }

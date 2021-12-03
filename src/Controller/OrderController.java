@@ -16,8 +16,18 @@ public class OrderController {
     }
 
     public void addItemsInOrder(Item item){
-        orderContainer.getOrder().addItemsInOrder(item);
+        getOrder().addItemsInOrder(item);
     }
 
+    public Order getOrder(){
+       return orderContainer.getOrder();
+    }
 
+    public void createOrder(){
+        orderContainer.createOrder();
+    }
+
+    public void addOrderToDatabase(Order order){
+        orderContainer.addOrderToDatabase(order);
+    }
 }

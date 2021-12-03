@@ -16,4 +16,8 @@ public class EmployeeContainer {
             instance = new EmployeeContainer();
         return instance;
     }
+
+    public void addEmployee(Employee employee){
+        employees.add(employee);
+    }
 }

@@ -3,7 +3,7 @@ package ConsoleUI;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public interface IMenu {
+public interface Menu {
     void runMenu();
 
     static void closeApplication(){

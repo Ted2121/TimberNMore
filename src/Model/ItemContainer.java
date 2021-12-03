@@ -16,4 +16,8 @@ public class ItemContainer {
             instance = new ItemContainer();
         return instance;
     }
+
+    public void addItemToInventory(Item item){
+        inventory.add(item);
+    }
 }
