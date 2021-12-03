@@ -4,7 +4,16 @@ public class Customer {
     private String name;
     private static int customerId = 1;
     private String customerType;
-    private double discount;
+    private final double discountMultiplyer;
 
+    public Customer(String name, String customerType) {
+        this.name = name;
+        this.customerType = customerType;
+        this.discountMultiplyer = switch (customerType.toLowerCase()){
+            case "premium" -> 0.1;
+            case "regular" -> 0.05;
+            default -> 0;};
+        customerId++;
+        }
+    }
 
-}
