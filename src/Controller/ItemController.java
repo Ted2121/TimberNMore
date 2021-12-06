@@ -11,4 +11,16 @@ public class ItemController {
     public void addItemToInventory(Item item){
         itemContainer.addItemToInventory(item);
     }
+
+    public Item searchForItem(String name){
+        Item itemToReturn = null;
+        for (Item item:itemContainer.getInventory()) {
+            if(item.getItemName().toLowerCase().contains(name.toLowerCase())){
+
+            itemToReturn = item;
+
+            }else{continue;}
+        }
+        return itemToReturn;
+    }
 }

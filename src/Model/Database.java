@@ -13,7 +13,7 @@ public class Database {
     OrderController orderController = new OrderController();
     CustomerController customerController = new CustomerController();
 
-    Item item1 = new Item('T', 11, "Hammer", true, new BigDecimal("50.0"));
+    Item item1 = new Item('T', 11, "Hammer", true, new BigDecimal("50.00"));
     Item item2 = new Item('D', 12, "Nails", false, new BigDecimal("20.0"));
     Item item3 = new Item('T', 13, "Bolts", false, new BigDecimal("15.0"));
     Item item4 = new Item('D', 14, "Chair", true, new BigDecimal("10.0"));
@@ -63,9 +63,9 @@ public class Database {
         addItemsToInContainer();
         item1.setQuantity(2);
         item3.setQuantity(3);
-        System.out.println(item1);
-        System.out.println(item3);
-        System.out.println(item2);
+//        System.out.println(item1);
+//        System.out.println(item3);
+//        System.out.println(item2);
         addEmployeesToContainer();
         addCustomersToContainer();
     }

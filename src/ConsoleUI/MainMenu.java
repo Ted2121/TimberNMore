@@ -12,8 +12,4 @@ public class MainMenu implements Menu {
     }
 
 
-//    @Override
-//    public void returnToMainMenu() {
-//        mainMenu();
-//    }
 }

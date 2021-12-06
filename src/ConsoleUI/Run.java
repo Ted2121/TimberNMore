@@ -1,4 +1,5 @@
 package ConsoleUI;
+import Controller.ItemController;
 import Controller.OrderController;
 import Model.Database;
 import Model.Database.*;
@@ -9,8 +10,11 @@ public class Run {
 
         Database database = new Database();
         OrderController orderController = new OrderController();
+        ItemController itemController = new ItemController();
 
     database.populateDatabase();
+
+        System.out.println(itemController.searchForItem("hammer"));
 
 //        System.out.println();
 //

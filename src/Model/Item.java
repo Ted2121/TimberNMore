@@ -131,7 +131,7 @@ public class Item {
                 "shelfNumber: " + shelfNumber + "\n" +
                 "itemId: " + itemId + "\n" +
                 "itemName: " + itemName + "\n" +
-                "price: " + price + "\n" +
+                "price: " + price.setScale(2, RoundingMode.CEILING) + "\n" +
                 "quantity: " + quantity + "\n" +
                 "barcode: " + barcode + "\n" +
                 "applyDiscount: " + applyDiscount + "\n" +

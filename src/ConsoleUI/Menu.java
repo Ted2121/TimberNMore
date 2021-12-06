@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public interface Menu {
+
     void runMenu();
 
     static void closeApplication(){
