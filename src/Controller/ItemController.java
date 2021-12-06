@@ -3,8 +3,11 @@ package Controller;
 import Model.Item;
 import Model.ItemContainer;
 
+import java.util.ArrayList;
+
 public class ItemController {
     private ItemContainer itemContainer;
+    private ArrayList<String> itemsToFindLocationCodes;
 
     public ItemController(){itemContainer = ItemContainer.getInstance();}
 
@@ -18,7 +21,7 @@ public class ItemController {
             if(item.getItemName().toLowerCase().contains(name.toLowerCase())){
 
             itemToReturn = item;
-
+            itemsToFindLocationCodes.add(item.getLocationCode());
             }else{continue;}
         }
         return itemToReturn;
