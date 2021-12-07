@@ -9,7 +9,8 @@ public class ItemController {
     private ItemContainer itemContainer;
     private ArrayList<String> itemsToFindLocationCodes;
 
-    public ItemController(){itemContainer = ItemContainer.getInstance();}
+    public ItemController(){itemContainer = ItemContainer.getInstance();
+    this.itemsToFindLocationCodes = new ArrayList<>();}
 
     public void addItemToInventory(Item item){
         itemContainer.addItemToInventory(item);
@@ -21,9 +22,22 @@ public class ItemController {
             if(item.getItemName().toLowerCase().contains(name.toLowerCase())){
 
             itemToReturn = item;
-            itemsToFindLocationCodes.add(item.getLocationCode());
-            }else{continue;}
+
+                try {
+                    itemsToFindLocationCodes.add(item.getLocationCode());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return itemToReturn;
+    }
+
+    public ArrayList<String> getItemsToFindLocationCodes() {
+        return itemsToFindLocationCodes;
+    }
+
+    public void setItemsToFindLocationCodes(ArrayList<String> itemsToFindLocationCodes) {
+        this.itemsToFindLocationCodes = itemsToFindLocationCodes;
     }
 }
