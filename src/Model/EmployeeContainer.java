@@ -20,4 +20,10 @@ public class EmployeeContainer {
     public void addEmployee(Employee employee){
         employees.add(employee);
     }
+
+    public ArrayList<Employee> getEmployees() {
+        return employees;
+    }
+
+
 }
