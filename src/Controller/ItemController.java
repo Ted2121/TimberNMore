@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 public class ItemController {
     private ItemContainer itemContainer;
-    private ArrayList<String> itemsToFindLocationCodes;
+
 
     public ItemController(){itemContainer = ItemContainer.getInstance();
-    this.itemsToFindLocationCodes = new ArrayList<>();}
+    }
 
     public void addItemToInventory(Item item){
         itemContainer.addItemToInventory(item);
@@ -24,7 +24,7 @@ public class ItemController {
             itemToReturn = item;
 
                 try {
-                    itemsToFindLocationCodes.add(item.getLocationCode());
+                    itemContainer.getLocationCodesToFindItems().add(item.getLocationCode());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -33,11 +33,13 @@ public class ItemController {
         return itemToReturn;
     }
 
-    public ArrayList<String> getItemsToFindLocationCodes() {
-        return itemsToFindLocationCodes;
+    public ArrayList<String> getLocationCodesToFindItems() {
+        return itemContainer.getLocationCodesToFindItems();
     }
 
-    public void setItemsToFindLocationCodes(ArrayList<String> itemsToFindLocationCodes) {
-        this.itemsToFindLocationCodes = itemsToFindLocationCodes;
+
+    public ArrayList<Item> getInventory(){
+        return itemContainer.getInventory();
     }
+
 }

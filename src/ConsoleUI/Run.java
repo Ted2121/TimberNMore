@@ -2,8 +2,6 @@ package ConsoleUI;
 import Controller.ItemController;
 import Controller.OrderController;
 import Model.Database;
-import Model.Database.*;
-import Model.Employee;
 
 public class Run {
     public static void main(String[] args) {
@@ -18,7 +16,7 @@ public class Run {
         System.out.println(itemController.searchForItem("hammer"));
         System.out.println(itemController.searchForItem("nails"));
 
-        System.out.println(itemController.getItemsToFindLocationCodes());
+        System.out.println(itemController.getLocationCodesToFindItems());
 
 //        System.out.println();
 //

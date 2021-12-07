@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class ItemContainer {
     private ArrayList<Item> inventory;
     private static ItemContainer instance;
+    private ArrayList<String> locationCodesToFindItems;
 
     private ItemContainer(){
         inventory = new ArrayList<Item>();
+        this.locationCodesToFindItems = new ArrayList<>();
     }
 
     // singleton
@@ -39,5 +41,13 @@ public class ItemContainer {
 
     public void setInventory(ArrayList<Item> inventory) {
         this.inventory = inventory;
+    }
+
+    public ArrayList<String> getLocationCodesToFindItems() {
+        return locationCodesToFindItems;
+    }
+
+    public void setLocationCodesToFindItems(ArrayList<String> locationCodesToFindItems) {
+        this.locationCodesToFindItems = locationCodesToFindItems;
     }
 }
