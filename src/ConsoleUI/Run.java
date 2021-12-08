@@ -12,7 +12,10 @@ public class Run {
 
     database.populateDatabase();
 
-    new LogInMenu().runMenu();
+
+    // bypassing LogInMenu for testing purposes
+    // new LogInMenu().runMenu(); //TODO don't forget to uncomment this
+        new MainMenu().runMenu();
 
 //        System.out.println(itemController.searchForItem("table"));
 //        System.out.println(itemController.searchForItem("hammer"));

@@ -6,6 +6,10 @@ public class LogInMenu implements Menu {
     private String username;
     private String password;
 
+    @Override
+    public void runMenu() {
+        logInMenu();
+    }
 
     // username is accesslevel + firstname + lastname
     // password is firstname + lastname + "123"
@@ -18,12 +22,7 @@ public class LogInMenu implements Menu {
         checkAccountDetails();
     }
 
-    @Override
-    public void runMenu() {
-        logInMenu();
-    }
-
-    public void checkAccountDetails() {
+    private void checkAccountDetails() {
         if (Menu.grantAccess(username, password)) {
             Menu.returnToMainMenu();
         } else {
