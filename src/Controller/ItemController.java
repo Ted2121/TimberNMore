@@ -16,24 +16,23 @@ public class ItemController {
         itemContainer.addItemToInventory(item);
     }
 
-    public Item searchForItem(String name){
+    public void searchForItem(String name){
         Item itemToReturn = null;
-        for (Item item:itemContainer.getInventory()) {
-            if(item.getItemName().toLowerCase().contains(name.toLowerCase())){
+        try {
+            for (Item item:itemContainer.getInventory()) {
+                if(item.getItemName().toLowerCase().contains(name.toLowerCase())){
 
-            itemToReturn = item;
+                    itemToReturn = item;
 
-                try {
                     itemContainer.getSearchedItems().add(itemToReturn);
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
             }
+            if (itemToReturn == null){
+                System.err.println("Item not found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if (itemToReturn == null){
-            System.err.println("Item not found");
-        }
-        return itemToReturn;
     }
 
     public ArrayList<String> getLocationCodesToFindItems() {
