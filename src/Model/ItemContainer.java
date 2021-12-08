@@ -6,10 +6,12 @@ public class ItemContainer {
     private ArrayList<Item> inventory;
     private static ItemContainer instance;
     private ArrayList<String> locationCodesToFindItems;
+    private ArrayList<Item> searchedItems;
 
     private ItemContainer(){
-        inventory = new ArrayList<Item>();
+        this.inventory = new ArrayList<Item>();
         this.locationCodesToFindItems = new ArrayList<>();
+        this.searchedItems = new ArrayList<Item>();
     }
 
     // singleton
@@ -34,6 +36,11 @@ public class ItemContainer {
 //        }
 //        return itemToReturn;
 //    }
+
+
+    public ArrayList<Item> getSearchedItems() {
+        return searchedItems;
+    }
 
     public ArrayList<Item> getInventory() {
         return inventory;

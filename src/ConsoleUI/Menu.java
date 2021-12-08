@@ -72,8 +72,14 @@ public interface Menu {
         return matched;
     }
 
+    // used in LogIn menu
     static boolean grantAccess(String username, String password){
         return matchUsername(username) && matchPassword(password);
+    }
+
+    // will be used after order is finalized
+    static void deleteSearchHistory(){
+        new ItemController().getSearchedItems().clear();
     }
 
     }

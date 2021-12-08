@@ -1,40 +1,50 @@
 package ConsoleUI;
 
-public class FinalizeOrderMenu implements Menu{
+import Controller.ItemController;
+import Controller.OrderController;
+
+public class SearchResultMenu implements Menu{
 
     @Override
     public void runMenu() {
-        finalizeOrderMenu();
+        searchResultMenu();
     }
 
-    private void finalizeOrderMenu(){
-        writeFinalizeOrderMenu();
+    private void searchResultMenu(){
+        System.out.println("****** Search Results ******");
+        // TODO this ArrayList is not yet populated
+        System.out.println(new ItemController().getSearchedItems());
+
+        writeSearchResultsMenu();
 
         while (true) {
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 // TODO
                 case 1 -> System.out.println();
-                // TODO don't forget to also delete search history here
                 case 2 -> System.out.println();
                 case 3 -> System.out.println();
                 case 4 -> Menu.returnToMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
+
                     System.exit(0);
                 }
                 default -> System.out.println("Invalid input: " + choice);
             }
         }
+
+
     }
 
-    private void writeFinalizeOrderMenu() {
-        System.out.println("****** Finalize Order ******");
-        System.out.println(" (1) Show Order");
-        System.out.println(" (2) Print Receipt");
+    private void writeSearchResultsMenu() {
+        System.out.println();
+        System.out.println(" (1) Add items to list");
+        System.out.println(" (2) Search for another item");
         System.out.println(" (3) Back to Create Order menu");
         System.out.println(" (4) Back to Main Menu");
         System.out.println(" (0) Close Application");
         System.out.print("\n Choice:");
+
     }
 }

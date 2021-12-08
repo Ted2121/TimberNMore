@@ -37,6 +37,9 @@ public class ItemController {
         return itemContainer.getLocationCodesToFindItems();
     }
 
+    public ArrayList<Item> getSearchedItems() {
+        return itemContainer.getSearchedItems();
+    }
 
     public ArrayList<Item> getInventory(){
         return itemContainer.getInventory();
