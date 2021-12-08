@@ -18,11 +18,11 @@ public class MainMenu implements Menu {
                 // TODO
                 case 1 -> {
                     new OrderController().createOrder();
-                    new CreateOrderMenu().runMenu();
+                    Menu.goToCreateOrderMenu();
                 }
                 case 2 ->{
                     new OrderController().getOrder();
-                    new CreateOrderMenu().runMenu();
+                    Menu.goToCreateOrderMenu();
                 }
                 case 3 -> System.out.println();
                 case 0 -> {
@@ -38,8 +38,8 @@ public class MainMenu implements Menu {
         System.out.println("****** Main menu ******");
         System.out.println(" (1) Create new order");
         System.out.println(" (2) Return to existing order");
-        System.out.println(" (2) Update Order"); // TODO
-        System.out.println(" (3) Find Order"); // TODO
+        System.out.println(" (3) Update Order"); // TODO
+        System.out.println(" (4) Find Order"); // TODO
         System.out.println(" (0) Close Application");
         System.out.print("\n Choice:");
     }

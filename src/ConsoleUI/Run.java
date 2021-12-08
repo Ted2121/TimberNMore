@@ -12,12 +12,12 @@ public class Run {
         ItemController itemController = new ItemController();
 
     Database.getDatabase().populateDatabase();
-        System.out.println(Database.getItemDetails());
+      //  System.out.println(Database.getItemDetails());
 
 
     // bypassing LogInMenu for testing purposes
     // new LogInMenu().runMenu(); //TODO don't forget to uncomment this
-        new MainMenu().runMenu();
+        Menu.goToMainMenu();
 
 //        System.out.println(itemController.searchForItem("table"));
 //        System.out.println(itemController.searchForItem("hammer"));

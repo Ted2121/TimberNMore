@@ -18,9 +18,32 @@ public interface Menu {
         System.exit(0);
     }
 
-    static void returnToMainMenu(){
+    static void goToMainMenu(){
         new MainMenu().runMenu();
     }
+
+    static void goToCreateOrderMenu(){
+        new CreateOrderMenu().runMenu();
+    }
+
+    static void goToSearchItemsMenu(){
+        new SearchForItemsMenu().runMenu();
+    }
+
+    static void goToScanItemsMenu(){
+        new ScanItemsMenu().runMenu();
+    }
+
+    static void goToLogInMenu(){
+        new LogInMenu().runMenu();
+    }
+
+    static void goToFinalizeOrderMenu(){
+        new FinalizeOrderMenu().runMenu();
+    }
+
+
+
 
     static int getIntegerFromUser(){
         int choice = 0;

@@ -1,7 +1,5 @@
 package ConsoleUI;
 
-import Controller.OrderController;
-
 public class CreateOrderMenu implements Menu {
 
 
@@ -18,10 +16,10 @@ public class CreateOrderMenu implements Menu {
                 int choice = Menu.getIntegerFromUser();
                 switch (choice) {
                     // TODO
-                    case 1 -> new SearchForItemsMenu().runMenu();
-                    case 2 -> new ScanItemsMenu().runMenu();
-                    case 3 -> System.out.println();
-                    case 4 -> Menu.returnToMainMenu();
+                    case 1 -> Menu.goToSearchItemsMenu();
+                    case 2 -> Menu.goToScanItemsMenu();
+                    case 3 -> Menu.goToFinalizeOrderMenu();
+                    case 4 -> Menu.goToMainMenu();
                     case 0 -> {
                         System.out.println("Closing Application");
 

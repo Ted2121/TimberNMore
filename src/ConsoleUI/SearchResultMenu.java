@@ -1,7 +1,6 @@
 package ConsoleUI;
 
 import Controller.ItemController;
-import Controller.OrderController;
 
 public class SearchResultMenu implements Menu{
 
@@ -24,7 +23,7 @@ public class SearchResultMenu implements Menu{
                 case 1 -> System.out.println();
                 case 2 -> System.out.println();
                 case 3 -> System.out.println();
-                case 4 -> Menu.returnToMainMenu();
+                case 4 -> Menu.goToMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
 

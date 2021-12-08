@@ -18,7 +18,7 @@ public class FinalizeOrderMenu implements Menu{
                 // TODO don't forget to also delete search history here
                 case 2 -> System.out.println();
                 case 3 -> System.out.println();
-                case 4 -> Menu.returnToMainMenu();
+                case 4 -> Menu.goToMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
                     System.exit(0);

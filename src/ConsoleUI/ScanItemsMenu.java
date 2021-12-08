@@ -28,8 +28,9 @@ public class ScanItemsMenu implements Menu {
                     System.out.println(new OrderController().getItemsInOrder());
                     writeScanItemsMenu();
                 }
-                case 2 -> System.out.println();
-                case 3 -> Menu.returnToMainMenu();
+                case 2 -> Menu.goToFinalizeOrderMenu();
+                case 3 -> Menu.goToCreateOrderMenu();
+                case 4 -> Menu.goToMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
                     System.exit(0);
@@ -48,8 +49,9 @@ public class ScanItemsMenu implements Menu {
     private void writeScanItemsMenu() {
         System.out.println("****** Scan Items ******");
         System.out.println(" (1) New scan");
-        System.out.println(" (2) Back to Create Order menu");
-        System.out.println(" (3) Back to Main Menu");
+        System.out.println(" (2) Finalize order");
+        System.out.println(" (3) Back to Create Order menu");
+        System.out.println(" (4) Back to Main Menu");
         System.out.println(" (0) Close Application");
         System.out.print("\n Choice:");
     }

@@ -24,7 +24,7 @@ public class LogInMenu implements Menu {
 
     private void checkAccountDetails() {
         if (Menu.grantAccess(username, password)) {
-            Menu.returnToMainMenu();
+            Menu.goToMainMenu();
         } else {
             System.err.println("Incorrect Username or Password. Please try again!");
 
