@@ -37,7 +37,7 @@ public class ItemController {
         }
     }
 
-    public void scanItem(int barcode){
+    public Item scanItem(int barcode){
         Item matchingItem = null;
         try {
             for (Item item:itemContainer.getInventory()) {
@@ -45,7 +45,7 @@ public class ItemController {
 
                     matchingItem = item;
 
-                    OrderContainer.getInstance().getItemsInOrder().add(matchingItem);
+                    OrderContainer.getInstance().createAndGetItemsInOrder().add(matchingItem);
                 }
             }
             if (matchingItem == null){
@@ -54,6 +54,7 @@ public class ItemController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return matchingItem;
     }
 
     public ArrayList<String> getLocationCodesToFindItems() {

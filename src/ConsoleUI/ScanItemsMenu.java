@@ -1,5 +1,9 @@
 package ConsoleUI;
 
+import Controller.ItemController;
+import Controller.OrderController;
+import Model.Database;
+
 public class ScanItemsMenu implements Menu {
 
     @Override
@@ -14,7 +18,16 @@ public class ScanItemsMenu implements Menu {
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 // TODO
-                case 1 -> System.out.println();
+                case 1 -> {
+                    System.out.println(Database.getItemDetails());
+                    // we scan a barcode (type it in as a placeholder)
+                    // we then find the matching item with the barcode
+                    // and we add that item to the current order
+                    new ItemController().scanItem(scanQuery());
+                    // for testing:
+                    System.out.println(new OrderController().getItemsInOrder());
+                    writeScanItemsMenu();
+                }
                 case 2 -> System.out.println();
                 case 3 -> Menu.returnToMainMenu();
                 case 0 -> {
@@ -24,6 +37,12 @@ public class ScanItemsMenu implements Menu {
                 default -> System.out.println("Invalid input: " + choice);
             }
         }
+    }
+
+    private int scanQuery() {
+        System.out.println();
+        System.out.println("Type in the barcode (placeholder for barcode scanner):");
+        return Menu.getIntegerFromUser();
     }
 
     private void writeScanItemsMenu() {

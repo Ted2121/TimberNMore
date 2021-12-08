@@ -19,7 +19,7 @@ public class CreateOrderMenu implements Menu {
                 switch (choice) {
                     // TODO
                     case 1 -> new SearchForItemsMenu().runMenu();
-                    case 2 -> System.out.println();
+                    case 2 -> new ScanItemsMenu().runMenu();
                     case 3 -> System.out.println();
                     case 4 -> Menu.returnToMainMenu();
                     case 0 -> {

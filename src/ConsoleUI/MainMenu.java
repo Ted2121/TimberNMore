@@ -17,12 +17,12 @@ public class MainMenu implements Menu {
             switch (choice) {
                 // TODO
                 case 1 -> {
-                    new CreateOrderMenu().runMenu();
                     new OrderController().createOrder();
+                    new CreateOrderMenu().runMenu();
                 }
                 case 2 ->{
-                    new CreateOrderMenu().runMenu();
                     new OrderController().getOrder();
+                    new CreateOrderMenu().runMenu();
                 }
                 case 3 -> System.out.println();
                 case 0 -> {

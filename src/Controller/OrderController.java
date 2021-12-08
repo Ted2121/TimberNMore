@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Customer;
 import Model.Item;
 import Model.Order;
 import Model.OrderContainer;
@@ -43,11 +42,15 @@ public class OrderController {
         for (int i = 0; i < itemController.getInventory().size(); i++) {
             int barcodeOfItem = itemController.getInventory().get(i).getBarcode();
             if (barcode == barcodeOfItem){
-                getItemsInOrder().add(itemController.getInventory().get(i));
+                createAndGetItemsInOrder().add(itemController.getInventory().get(i));
             }else {
                 System.out.println("Something went wrong here"); //for debugging
             }
         }
+    }
+
+    public ArrayList<Item> createAndGetItemsInOrder() {
+        return orderContainer.createAndGetItemsInOrder();
     }
 
     public ArrayList<Item> getItemsInOrder() {

@@ -22,12 +22,16 @@ public class OrderContainer {
 
     // if the ArrayList itemInOrder is null, we create a new one
     // else, we return the existing one
-    public ArrayList<Item> getItemsInOrder() {
+    public ArrayList<Item> createAndGetItemsInOrder() {
         // singleton for items in order
         if(order.getItemsInOrder() == null){
             order.setItemsInOrder(new ArrayList<Item>()) ;
-        }else{order.setItemsInOrder(getItemsInOrder());}
+        }else{order.setItemsInOrder(order.getItemsInOrder());}
         return order.getItemsInOrder();
+    }
+
+    public ArrayList<Item> getItemsInOrder(){
+       return order.getItemsInOrder();
     }
 
     // If order is null, we create a new order, otherwise we return the existing one

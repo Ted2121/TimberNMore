@@ -15,7 +15,7 @@ public class Order {
     private BigDecimal totalPrice;
 
     public Order() {
-
+        //itemsInOrder = new ArrayList<>();
         // We set the orderDateAndTime to the formatted LocalDateTime.now()
         this.orderDateAndTime = LocalDateTime.now().format(format);
         // We increment orderId every time we create a new order
@@ -27,6 +27,8 @@ public class Order {
     // Adds items to the order
     public void addItemsInOrder(Item item){
         itemsInOrder.add(item);
+        System.out.println(itemsInOrder);
+        System.out.println(itemsInOrder.size());
     }
 
     public ArrayList<Item> getItemsInOrder() {
