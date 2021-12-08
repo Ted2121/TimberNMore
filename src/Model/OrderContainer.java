@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class OrderContainer {
     private final ArrayList<Order> orders;
-
+    //private ArrayList<Item> itemsInOrder;
     private static OrderContainer instance;
     private Order order;
 
@@ -18,6 +18,16 @@ public class OrderContainer {
         if(instance == null)
             instance = new OrderContainer();
         return instance;
+    }
+
+    // if the ArrayList itemInOrder is null, we create a new one
+    // else, we return the existing one
+    public ArrayList<Item> getItemsInOrder() {
+        // singleton for items in order
+        if(order.getItemsInOrder() == null){
+            order.setItemsInOrder(new ArrayList<Item>()) ;
+        }else{order.setItemsInOrder(getItemsInOrder());}
+        return order.getItemsInOrder();
     }
 
     // If order is null, we create a new order, otherwise we return the existing one

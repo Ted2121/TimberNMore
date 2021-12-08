@@ -29,6 +29,14 @@ public class Order {
         itemsInOrder.add(item);
     }
 
+    public ArrayList<Item> getItemsInOrder() {
+        return itemsInOrder;
+    }
+
+    public void setItemsInOrder(ArrayList<Item> itemsInOrder) {
+        this.itemsInOrder = itemsInOrder;
+    }
+
     public Customer getCustomer() {
         return customer;
     }

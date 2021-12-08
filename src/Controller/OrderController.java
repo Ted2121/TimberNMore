@@ -9,18 +9,13 @@ import java.util.ArrayList;
 
 public class OrderController {
     private final OrderContainer orderContainer;
-    private ArrayList<Item> itemsInOrder;
+
     private final ItemController itemController;
 
     public OrderController(){
         orderContainer = OrderContainer.getInstance();
         itemController = new ItemController();
 
-        // TODO this might not be good later
-        // singleton for order
-        if(itemsInOrder == null){
-            itemsInOrder = new ArrayList<Item>();
-        }else{itemsInOrder = getItemsInOrder();}
     }
 
     public void addItemsInOrder(Item item){
@@ -31,9 +26,11 @@ public class OrderController {
        return orderContainer.getOrder();
     }
 
-    public void createOrder(){
+    public void createOrGetOrder(){
         orderContainer.createOrder();
     }
+
+
 
     public void addOrderToDatabase(Order order){
         orderContainer.addOrderToDatabase(order);
@@ -46,7 +43,7 @@ public class OrderController {
         for (int i = 0; i < itemController.getInventory().size(); i++) {
             int barcodeOfItem = itemController.getInventory().get(i).getBarcode();
             if (barcode == barcodeOfItem){
-                itemsInOrder.add(itemController.getInventory().get(i));
+                getItemsInOrder().add(itemController.getInventory().get(i));
             }else {
                 System.out.println("Something went wrong here"); //for debugging
             }
@@ -54,6 +51,6 @@ public class OrderController {
     }
 
     public ArrayList<Item> getItemsInOrder() {
-        return itemsInOrder;
+        return orderContainer.getItemsInOrder();
     }
 }
