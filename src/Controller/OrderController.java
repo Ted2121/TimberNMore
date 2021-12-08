@@ -8,9 +8,9 @@ import Model.OrderContainer;
 import java.util.ArrayList;
 
 public class OrderController {
-    private OrderContainer orderContainer;
+    private final OrderContainer orderContainer;
     private ArrayList<Item> itemsInOrder;
-    private ItemController itemController;
+    private final ItemController itemController;
 
     public OrderController(){
         orderContainer = OrderContainer.getInstance();

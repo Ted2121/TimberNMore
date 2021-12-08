@@ -6,7 +6,7 @@ import Model.ItemContainer;
 import java.util.ArrayList;
 
 public class ItemController {
-    private ItemContainer itemContainer;
+    private final ItemContainer itemContainer;
 
 
     public ItemController(){itemContainer = ItemContainer.getInstance();

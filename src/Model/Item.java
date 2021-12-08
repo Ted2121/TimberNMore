@@ -13,7 +13,7 @@ public class Item {
     private char location;
     private int shelfNumber;
     private static int globalItemId = 1;
-    private int itemId;
+    private final int itemId;
     private String itemName;
     private BigDecimal price;
 

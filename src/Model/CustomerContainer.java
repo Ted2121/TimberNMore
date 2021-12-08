@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class CustomerContainer {
 
-    private ArrayList<Customer> customers;
+    private final ArrayList<Customer> customers;
     private static CustomerContainer instance;
 
     private CustomerContainer(){

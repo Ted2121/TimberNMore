@@ -68,5 +68,8 @@ public class Database {
 //        System.out.println(item2);
         addEmployeesToContainer();
         addCustomersToContainer();
+
+//        System.out.println(employee1);
+//        System.out.println(employee2);
     }
 }

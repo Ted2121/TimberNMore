@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 
 public class EmployeeContainer {
-    private ArrayList<Employee> employees;
+    private final ArrayList<Employee> employees;
     private static EmployeeContainer instance;
 
     private EmployeeContainer(){

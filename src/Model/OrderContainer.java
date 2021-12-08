@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 
 public class OrderContainer {
-    private ArrayList<Order> orders;
+    private final ArrayList<Order> orders;
 
     private static OrderContainer instance;
     private Order order;

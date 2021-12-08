@@ -7,6 +7,8 @@ public class LogInMenu implements Menu {
     private String password;
 
 
+    // username is accesslevel + firstname + lastname
+    // password is firstname + lastname + "123"
     private void logInMenu() {
         System.out.println("**** Log In ****\n");
         System.out.print("Username: ");
@@ -32,14 +34,15 @@ public class LogInMenu implements Menu {
                 public void run() {
                     try {
                         Thread.sleep(500);
-            logInMenu();
+                        logInMenu();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             };
 
-runnable.run();
+            runnable.run();
+
         }
 
 

@@ -6,7 +6,7 @@ import Model.EmployeeContainer;
 import java.util.ArrayList;
 
 public class EmployeeController {
-    private EmployeeContainer employeeContainer;
+    private final EmployeeContainer employeeContainer;
 
     public EmployeeController() {employeeContainer = EmployeeContainer.getInstance();}
 
