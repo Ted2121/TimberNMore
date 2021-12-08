@@ -16,7 +16,7 @@ public class Run {
 
 
     // bypassing LogInMenu for testing purposes
-    // new LogInMenu().runMenu(); //TODO don't forget to uncomment this
+    // Menu.goToLogInMenu(); //TODO don't forget to uncomment this
         Menu.goToMainMenu();
 
 //        System.out.println(itemController.searchForItem("table"));

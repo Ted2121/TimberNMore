@@ -42,9 +42,6 @@ public interface Menu {
         new FinalizeOrderMenu().runMenu();
     }
 
-
-
-
     static int getIntegerFromUser(){
         int choice = 0;
         try{

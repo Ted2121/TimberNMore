@@ -25,8 +25,9 @@ public class SearchForItemsMenu implements Menu{
                     System.out.println(new ItemController().getSearchedItems());
                     writeSearchForItemsMenu();
                 }
-                case 2 -> Menu.goToCreateOrderMenu();
-                case 3 -> Menu.goToMainMenu();
+                case 2 -> Menu.goToSearchItemsMenu();
+                case 3 -> Menu.goToCreateOrderMenu();
+                case 4 -> Menu.goToMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
                     System.exit(0);
@@ -46,8 +47,9 @@ public class SearchForItemsMenu implements Menu{
     private void writeSearchForItemsMenu() {
         System.out.println("****** Search for Items ******");
         System.out.println(" (1) New search");
-        System.out.println(" (2) Back to Create Order menu");
-        System.out.println(" (3) Back to Main Menu");
+        System.out.println(" (2) Go to search results");
+        System.out.println(" (3) Back to Create Order menu");
+        System.out.println(" (4) Back to Main Menu");
         System.out.println(" (0) Close Application");
         System.out.print("\n Choice:");
     }
