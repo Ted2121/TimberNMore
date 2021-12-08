@@ -72,4 +72,25 @@ public class Database {
 //        System.out.println(employee1);
 //        System.out.println(employee2);
     }
+
+    // these methods are used to cheat the barcode part because we don't have a real barcode scanner
+    public int getItem1Barcode(){
+        return item1.getBarcode();
+    }
+
+    public int getItem2Barcode(){
+        return item2.getBarcode();
+    }
+
+    public int getItem3Barcode(){
+        return item3.getBarcode();
+    }
+
+    public int getItem4Barcode(){
+        return item4.getBarcode();
+    }
+
+    public int getItem5Barcode(){
+        return item5.getBarcode();
+    }
 }

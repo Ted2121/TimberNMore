@@ -2,11 +2,13 @@ package Controller;
 
 import Model.Item;
 import Model.ItemContainer;
+import Model.OrderContainer;
 
 import java.util.ArrayList;
 
 public class ItemController {
     private final ItemContainer itemContainer;
+
 
 
     public ItemController(){itemContainer = ItemContainer.getInstance();
@@ -17,17 +19,36 @@ public class ItemController {
     }
 
     public void searchForItem(String name){
-        Item itemToReturn = null;
+        Item matchingItem = null;
         try {
             for (Item item:itemContainer.getInventory()) {
                 if(item.getItemName().toLowerCase().contains(name.toLowerCase())){
 
-                    itemToReturn = item;
+                    matchingItem = item;
 
-                    itemContainer.getSearchedItems().add(itemToReturn);
+                    itemContainer.getSearchedItems().add(matchingItem);
                 }
             }
-            if (itemToReturn == null){
+            if (matchingItem == null){
+                System.err.println("Item not found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void scanItem(int barcode){
+        Item matchingItem = null;
+        try {
+            for (Item item:itemContainer.getInventory()) {
+                if(item.getBarcode() == barcode){
+
+                    matchingItem = item;
+
+                    OrderContainer.getInstance().getItemsInOrder().add(matchingItem);
+                }
+            }
+            if (matchingItem == null){
                 System.err.println("Item not found");
             }
         } catch (Exception e) {
