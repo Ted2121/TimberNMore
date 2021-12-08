@@ -8,10 +8,17 @@ import Controller.OrderController;
 import java.math.BigDecimal;
 
 public class Database {
-    ItemController itemController = new ItemController();
-    EmployeeController employeeController = new EmployeeController();
-    OrderController orderController = new OrderController();
-    CustomerController customerController = new CustomerController();
+    private ItemController itemController = new ItemController();
+    private EmployeeController employeeController = new EmployeeController();
+    private OrderController orderController = new OrderController();
+    private CustomerController customerController = new CustomerController();
+    private static Database database = new Database();
+    // created this static string to be able to call its getter in void main
+    private static String itemDetails;
+
+    public Database(){
+        getNamesAndBarcodes();
+    }
 
     Item item1 = new Item('T', 11, "Hammer", true, new BigDecimal("50.00"));
     Item item2 = new Item('D', 12, "Nails", false, new BigDecimal("20.0"));
@@ -92,5 +99,24 @@ public class Database {
 
     public int getItem5Barcode(){
         return item5.getBarcode();
+    }
+
+    // this is used to initialize a static string to non-static items data
+    public String getNamesAndBarcodes(){
+        this.itemDetails = item1.getItemName() + ": " + getItem1Barcode() + "\n" +
+                item2.getItemName() + ": " + getItem2Barcode() + "\n" +
+                item3.getItemName() + ": " + getItem3Barcode() + "\n" +
+                item4.getItemName() + ": " + getItem4Barcode() + "\n" +
+                item5.getItemName() + ": " + getItem5Barcode() + "\n";
+        return itemDetails;
+    }
+
+    public static Database getDatabase() {
+
+        return database;
+    }
+
+    public static String getItemDetails() {
+        return itemDetails;
     }
 }

@@ -36,7 +36,7 @@ public class MainMenu implements Menu {
 
     private void writeMainMenu(){
         System.out.println("****** Main menu ******");
-        System.out.println(" (1) Create mew order");
+        System.out.println(" (1) Create new order");
         System.out.println(" (2) Return to existing order");
         System.out.println(" (2) Update Order"); // TODO
         System.out.println(" (3) Find Order"); // TODO
