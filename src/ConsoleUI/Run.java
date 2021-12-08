@@ -12,11 +12,13 @@ public class Run {
 
     database.populateDatabase();
 
-        System.out.println(itemController.searchForItem("table"));
-        System.out.println(itemController.searchForItem("hammer"));
-        System.out.println(itemController.searchForItem("nails"));
+    new LogInMenu().runMenu();
 
-        System.out.println(itemController.getLocationCodesToFindItems());
+//        System.out.println(itemController.searchForItem("table"));
+//        System.out.println(itemController.searchForItem("hammer"));
+//        System.out.println(itemController.searchForItem("nails"));
+//
+//        System.out.println(itemController.getLocationCodesToFindItems());
 
 //        System.out.println();
 //
