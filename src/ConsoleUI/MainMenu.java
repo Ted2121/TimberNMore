@@ -14,7 +14,7 @@ public class MainMenu implements Menu {
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 // TODO
-                case 1 -> System.out.println();
+                case 1 -> new CreateOrderMenu().runMenu();
                 case 2 -> System.out.println();
                 case 3 -> System.out.println();
                 case 0 -> {
