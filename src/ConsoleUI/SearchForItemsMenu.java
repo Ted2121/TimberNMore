@@ -1,6 +1,11 @@
 package ConsoleUI;
 
+import Controller.ItemController;
+
+
 public class SearchForItemsMenu implements Menu{
+
+    //private Item currentItem = null;
 
     @Override
     public void runMenu() {
@@ -15,8 +20,12 @@ public class SearchForItemsMenu implements Menu{
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 // TODO
-                case 1 -> System.out.println();
-                case 2 -> System.out.println();
+                case 1 -> {
+                    searchQuery();
+                    System.out.println(new ItemController().getSearchedItems());
+                    writeSearchForItemsMenu();
+                }
+                case 2 -> new CreateOrderMenu().runMenu();
                 case 3 -> Menu.returnToMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
@@ -25,6 +34,13 @@ public class SearchForItemsMenu implements Menu{
                 default -> System.out.println("Invalid input: " + choice);
             }
         }
+    }
+
+    private void searchQuery(){
+        System.out.println("Type in the name of the item:");
+        String searched = Menu.getStringFromUser();
+        new ItemController().searchForItem(searched);
+
     }
 
     private void writeSearchForItemsMenu() {

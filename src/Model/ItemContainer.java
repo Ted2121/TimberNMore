@@ -25,22 +25,12 @@ public class ItemContainer {
         inventory.add(item);
     }
 
-//    public Item searchForItem(String name){
-//        Item itemToReturn = null;
-//        for (Item item:inventory) {
-//            if(item.getItemName().contains(name.toLowerCase())){
-//
-//            itemToReturn = item;
-//            }
-//            continue;
-//        }
-//        return itemToReturn;
-//    }
-
 
     public ArrayList<Item> getSearchedItems() {
         return searchedItems;
     }
+
+
 
     public ArrayList<Item> getInventory() {
         return inventory;
@@ -54,7 +44,5 @@ public class ItemContainer {
         return locationCodesToFindItems;
     }
 
-    public void setLocationCodesToFindItems(ArrayList<String> locationCodesToFindItems) {
-        this.locationCodesToFindItems = locationCodesToFindItems;
-    }
+
 }

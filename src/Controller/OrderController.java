@@ -26,7 +26,7 @@ public class OrderController {
        return orderContainer.getOrder();
     }
 
-    public void createOrGetOrder(){
+    public void createOrder(){
         orderContainer.createOrder();
     }
 

@@ -1,5 +1,7 @@
 package ConsoleUI;
 
+import Controller.OrderController;
+
 public class MainMenu implements Menu {
 
     @Override
@@ -14,8 +16,14 @@ public class MainMenu implements Menu {
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 // TODO
-                case 1 -> new CreateOrderMenu().runMenu();
-                case 2 -> System.out.println();
+                case 1 -> {
+                    new CreateOrderMenu().runMenu();
+                    new OrderController().createOrder();
+                }
+                case 2 ->{
+                    new CreateOrderMenu().runMenu();
+                    new OrderController().getOrder();
+                }
                 case 3 -> System.out.println();
                 case 0 -> {
                     System.out.println("Closing Application");
@@ -28,7 +36,8 @@ public class MainMenu implements Menu {
 
     private void writeMainMenu(){
         System.out.println("****** Main menu ******");
-        System.out.println(" (1) Create Order");
+        System.out.println(" (1) Create mew order");
+        System.out.println(" (2) Return to existing order");
         System.out.println(" (2) Update Order"); // TODO
         System.out.println(" (3) Find Order"); // TODO
         System.out.println(" (0) Close Application");

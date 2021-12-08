@@ -24,11 +24,14 @@ public class ItemController {
             itemToReturn = item;
 
                 try {
-                    itemContainer.getLocationCodesToFindItems().add(item.getLocationCode());
+                    itemContainer.getSearchedItems().add(itemToReturn);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+        }
+        if (itemToReturn == null){
+            System.err.println("Item not found");
         }
         return itemToReturn;
     }

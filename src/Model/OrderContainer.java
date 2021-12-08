@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class OrderContainer {
     private final ArrayList<Order> orders;
-    //private ArrayList<Item> itemsInOrder;
+
     private static OrderContainer instance;
     private Order order;
 
