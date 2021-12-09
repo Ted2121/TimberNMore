@@ -13,7 +13,7 @@ public class CustomerController {
     }
 
     // TODO
-//    public Person getPersonByName(String name){
+// DO NOT PUT THIS IN THE DIAGRAMS
 //
 //        boolean found = false;
 //        int i = 0;

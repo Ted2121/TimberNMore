@@ -65,6 +65,7 @@ public class FinalizeOrderMenu implements Menu{
                             }
                         };
                         runnable.run();
+
                     }
                 }
                 case 3 -> Menu.goToCreateOrderMenu();
