@@ -45,7 +45,7 @@ public interface Menu {
     static void goToSearchResultMenu(){ new SearchResultMenu().runMenu();}
 
     static int getIntegerFromUser(){
-        int choice = 0;
+        int choice = 9;
         try{
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
@@ -99,7 +99,7 @@ public interface Menu {
         return matchUsername(username) && matchPassword(password);
     }
 
-    // will be used after order is finalized
+    // will be used afer order is finalized
     static void deleteSearchHistory(){
         new ItemController().getSearchedItems().clear();
     }

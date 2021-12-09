@@ -23,6 +23,7 @@ public class CreateOrderMenu implements Menu {
                     case 2 -> Menu.goToScanItemsMenu();
                     case 3 -> Menu.goToFinalizeOrderMenu();
                     case 4 -> Menu.goToMainMenu();
+                    case 9 -> writeCreateOrderMenu();
                     case 0 -> {
                         System.out.println("Closing Application");
 

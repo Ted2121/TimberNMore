@@ -32,6 +32,7 @@ public class ScanItemsMenu implements Menu {
                 case 2 -> Menu.goToFinalizeOrderMenu();
                 case 3 -> Menu.goToCreateOrderMenu();
                 case 4 -> Menu.goToMainMenu();
+                case 9 -> writeScanItemsMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
                     Menu.closeApplication();

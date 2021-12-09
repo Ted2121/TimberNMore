@@ -25,6 +25,7 @@ public class SearchResultMenu implements Menu{
                 case 2 -> Menu.goToSearchItemsMenu();
                 case 3 -> Menu.goToCreateOrderMenu();
                 case 4 -> Menu.goToMainMenu();
+                case 9 -> writeSearchResultsMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
 

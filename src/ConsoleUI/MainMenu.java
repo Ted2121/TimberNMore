@@ -25,6 +25,8 @@ public class MainMenu implements Menu {
                     Menu.goToCreateOrderMenu();
                 }
                 case 3 -> System.out.println();
+                case 4 -> System.out.println();
+                case 9 -> writeMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
 

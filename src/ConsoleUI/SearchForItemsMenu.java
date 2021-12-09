@@ -29,6 +29,7 @@ public class SearchForItemsMenu implements Menu{
                 case 2 -> Menu.goToSearchResultMenu();
                 case 3 -> Menu.goToCreateOrderMenu();
                 case 4 -> Menu.goToMainMenu();
+                case 9 -> writeSearchForItemsMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
                     Menu.closeApplication();

@@ -23,20 +23,53 @@ public class FinalizeOrderMenu implements Menu{
             switch (choice) {
                 // TODO
                 case 1 -> {
-                    System.out.println(orderController.getOrder());
-                    writeFinalizeOrderMenu();
+                    try {
+                        System.out.println(orderController.getOrder());
+                    } catch (NullPointerException e) {
+                        System.err.println("Order not found!");
+                    } finally {
+                        Runnable runnable =  new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(500);
+                                    writeFinalizeOrderMenu();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        };
+                        runnable.run();
+                    }
                 }
 
                 case 2 -> {
 
-                    System.out.println(orderController.getReceipt());
-                    orderController.addOrderToDatabase(orderController.getOrder());
-                    itemController.clearSearchHistory();
-                    System.out.println("Order finalized. Going back to Main Menu");
-                    Menu.goToMainMenu();
+                    try {
+                        System.out.println(orderController.getReceipt());
+                        orderController.addOrderToDatabase(orderController.getOrder());
+                        itemController.clearSearchHistory();
+                        System.out.println("Order finalized. Going back to Main Menu");
+                    } catch (NullPointerException e) {
+                        System.err.println("Order not found!");
+                    } finally {
+                        Runnable runnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(500);
+                                    Menu.goToMainMenu();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        };
+                        runnable.run();
+                    }
                 }
                 case 3 -> Menu.goToCreateOrderMenu();
                 case 4 -> Menu.goToMainMenu();
+                case 9 -> writeFinalizeOrderMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
                     Menu.closeApplication();
