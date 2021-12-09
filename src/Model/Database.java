@@ -63,13 +63,13 @@ public class Database {
         customerController.addCustomer(customer5);
     }
 
-    // TODO
+
     // Will get called at the start of the application
     public void populateDatabase(){
 
         addItemsToInContainer();
-        item1.setQuantity(2);
-        item3.setQuantity(3);
+        // item1.setQuantity(2);
+        // item3.setQuantity(3);
 //        System.out.println(item1);
 //        System.out.println(item3);
 //        System.out.println(item2);

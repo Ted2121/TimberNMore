@@ -9,10 +9,10 @@ public class MainMenu implements Menu {
         mainMenu();
     }
 
+    @SuppressWarnings("InfiniteLoopStatement")
     private void mainMenu(){
         writeMainMenu();
-        boolean running = true;
-        while (running) {
+        while (true) {
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 // TODO
@@ -27,7 +27,8 @@ public class MainMenu implements Menu {
                 case 3 -> System.out.println();
                 case 0 -> {
                     System.out.println("Closing Application");
-                    running = false;
+
+                    Menu.closeApplication();
                 }
                 default -> System.out.println("Invalid input: " + choice);
             }

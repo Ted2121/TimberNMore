@@ -21,16 +21,18 @@ public class ItemContainer {
         return instance;
     }
 
+    public void clearSearchHistory(){
+        locationCodesToFindItems.clear();
+        searchedItems.clear();
+    }
+
     public void addItemToInventory(Item item){
         inventory.add(item);
     }
 
-
     public ArrayList<Item> getSearchedItems() {
         return searchedItems;
     }
-
-
 
     public ArrayList<Item> getInventory() {
         return inventory;

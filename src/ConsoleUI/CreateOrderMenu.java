@@ -1,5 +1,7 @@
 package ConsoleUI;
 
+import Controller.OrderController;
+
 public class CreateOrderMenu implements Menu {
 
 
@@ -8,6 +10,7 @@ public class CreateOrderMenu implements Menu {
         createOrderMenu();
     }
 
+    @SuppressWarnings("InfiniteLoopStatement")
     private void createOrderMenu(){
 
             writeCreateOrderMenu();
@@ -23,7 +26,7 @@ public class CreateOrderMenu implements Menu {
                     case 0 -> {
                         System.out.println("Closing Application");
 
-                        System.exit(0);
+                        Menu.closeApplication();
                     }
                     default -> System.out.println("Invalid input: " + choice);
                 }

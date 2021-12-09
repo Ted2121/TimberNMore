@@ -12,11 +12,12 @@ public class SearchForItemsMenu implements Menu{
         searchForItemsMenu();
     }
 
+    @SuppressWarnings("InfiniteLoopStatement")
     private void searchForItemsMenu(){
 
         writeSearchForItemsMenu();
 
-        while (true) {
+        while (true){
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 // TODO
@@ -30,7 +31,7 @@ public class SearchForItemsMenu implements Menu{
                 case 4 -> Menu.goToMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
-                    System.exit(0);
+                    Menu.closeApplication();
                 }
                 default -> System.out.println("Invalid input: " + choice);
             }

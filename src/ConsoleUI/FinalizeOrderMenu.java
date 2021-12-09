@@ -1,12 +1,20 @@
 package ConsoleUI;
 
+import Controller.ItemController;
+import Controller.OrderController;
+import Model.ItemContainer;
+
 public class FinalizeOrderMenu implements Menu{
+
+    OrderController orderController = new OrderController();
+    ItemController itemController = new ItemController();
 
     @Override
     public void runMenu() {
         finalizeOrderMenu();
     }
 
+    @SuppressWarnings("InfiniteLoopStatement")
     private void finalizeOrderMenu(){
         writeFinalizeOrderMenu();
 
@@ -14,14 +22,24 @@ public class FinalizeOrderMenu implements Menu{
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 // TODO
-                case 1 -> System.out.println();
-                // TODO don't forget to also delete search history here
-                case 2 -> System.out.println();
-                case 3 -> System.out.println();
+                case 1 -> {
+                    System.out.println(orderController.getOrder());
+                    writeFinalizeOrderMenu();
+                }
+
+                case 2 -> {
+
+                    System.out.println(orderController.getReceipt());
+                    orderController.addOrderToDatabase(orderController.getOrder());
+                    itemController.clearSearchHistory();
+                    System.out.println("Order finalized. Going back to Main Menu");
+                    Menu.goToMainMenu();
+                }
+                case 3 -> Menu.goToCreateOrderMenu();
                 case 4 -> Menu.goToMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
-                    System.exit(0);
+                    Menu.closeApplication();
                 }
                 default -> System.out.println("Invalid input: " + choice);
             }

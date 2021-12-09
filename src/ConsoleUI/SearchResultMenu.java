@@ -9,6 +9,7 @@ public class SearchResultMenu implements Menu{
         searchResultMenu();
     }
 
+    @SuppressWarnings("InfiniteLoopStatement")
     private void searchResultMenu(){
         System.out.println("****** Search Results ******");
         // TODO this ArrayList is not yet populated
@@ -27,7 +28,7 @@ public class SearchResultMenu implements Menu{
                 case 0 -> {
                     System.out.println("Closing Application");
 
-                    System.exit(0);
+                    Menu.closeApplication();
                 }
                 default -> System.out.println("Invalid input: " + choice);
             }

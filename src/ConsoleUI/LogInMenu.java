@@ -11,7 +11,7 @@ public class LogInMenu implements Menu {
         logInMenu();
     }
 
-    // username is accesslevel + firstname + lastname
+    // username is access level + firstname + lastname
     // password is firstname + lastname + "123"
     private void logInMenu() {
         System.out.println("**** Log In ****\n");

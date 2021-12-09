@@ -37,7 +37,7 @@ public class ItemController {
         }
     }
 
-    public Item scanItem(int barcode){
+    public void scanItem(int barcode){
         Item matchingItem = null;
         try {
             for (Item item:itemContainer.getInventory()) {
@@ -54,7 +54,10 @@ public class ItemController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return matchingItem;
+    }
+
+    public void clearSearchHistory(){
+        itemContainer.clearSearchHistory();
     }
 
     public ArrayList<String> getLocationCodesToFindItems() {

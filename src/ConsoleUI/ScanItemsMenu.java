@@ -11,6 +11,7 @@ public class ScanItemsMenu implements Menu {
         scanItemsMenu();
     }
 
+    @SuppressWarnings("InfiniteLoopStatement")
     private void scanItemsMenu(){
         writeScanItemsMenu();
 
@@ -33,7 +34,7 @@ public class ScanItemsMenu implements Menu {
                 case 4 -> Menu.goToMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
-                    System.exit(0);
+                    Menu.closeApplication();
                 }
                 default -> System.out.println("Invalid input: " + choice);
             }

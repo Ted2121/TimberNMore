@@ -4,6 +4,8 @@ import Model.Item;
 import Model.Order;
 import Model.OrderContainer;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class OrderController {
@@ -29,8 +31,6 @@ public class OrderController {
         orderContainer.createOrder();
     }
 
-
-
     public void addOrderToDatabase(Order order){
         orderContainer.addOrderToDatabase(order);
     }
@@ -53,7 +53,23 @@ public class OrderController {
         return orderContainer.createAndGetItemsInOrder();
     }
 
-    public ArrayList<Item> getItemsInOrder() {
+    public ArrayList<Item> getItemsInOrder(){
         return orderContainer.getItemsInOrder();
+    }
+
+    public BigDecimal totalPrice(){
+        BigDecimal total = new BigDecimal(0);
+        for (Item item:
+             getItemsInOrder()) {
+            total = total.add(item.getPrice());
+        }
+        return total.setScale(2, RoundingMode.CEILING);
+    }
+
+    public String getReceipt(){
+        return "Order\n-----------------------------------\n" +
+                getItemsInOrder() +
+                "\n-----------------------------------\n" +
+                "Total: " + totalPrice();
     }
 }
