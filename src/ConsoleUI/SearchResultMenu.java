@@ -30,11 +30,12 @@ public class SearchResultMenu implements Menu{
 
                     Menu.closeApplication();
                 }
-                default -> System.out.println("Invalid input: " + choice);
+                default -> {
+                    System.out.println("Invalid input: " + choice);
+                    writeSearchResultsMenu();
+                }
             }
         }
-
-
     }
 
     private void writeSearchResultsMenu() {

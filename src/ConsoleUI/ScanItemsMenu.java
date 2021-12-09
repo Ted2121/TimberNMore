@@ -36,7 +36,10 @@ public class ScanItemsMenu implements Menu {
                     System.out.println("Closing Application");
                     Menu.closeApplication();
                 }
-                default -> System.out.println("Invalid input: " + choice);
+                default -> {
+                    System.out.println("Invalid input: " + choice);
+                    writeScanItemsMenu();
+                }
             }
         }
     }

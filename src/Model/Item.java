@@ -102,16 +102,6 @@ public class Item {
         this.applyDiscount = applyDiscount;
     }
 
-//    public int getQuantity() {
-//        return quantity;
-//    }
-//
-//    // Special setter that also changes price in relation to quantity
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//        this.price = this.price.multiply(new BigDecimal(getQuantity()).setScale(0, RoundingMode.FLOOR));
-//    }
-
     public double getDiscountModifier() {
         return discountModifier;
     }
@@ -137,14 +127,4 @@ public class Item {
                 "";
     }
 
-    public String forReceipt(){
-        return "Item: " + "\n-----------------------------------\n" +
-                "itemName: " + itemName + "\n" +
-                "price: " + price.setScale(2, RoundingMode.CEILING) + "\n" +
-                //"quantity: " + quantity + "\n" +
-                "barcode: " + barcode + "\n" +
-                "applyDiscount: " + applyDiscount + "\n" +
-                "discountModifier: " + discountModifier + "\n" +
-                "\n-----------------------------------\n";
-    }
 }

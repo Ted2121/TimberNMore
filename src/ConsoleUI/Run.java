@@ -16,21 +16,10 @@ public class Run {
 
 
     // bypassing LogInMenu for testing purposes
-    // Menu.goToLogInMenu(); //TODO don't forget to uncomment this
+
+  // Menu.goToLogInMenu(); //TODO don't forget to uncomment this
         Menu.goToMainMenu();
-
-//        System.out.println(itemController.searchForItem("table"));
-//        System.out.println(itemController.searchForItem("hammer"));
-//        System.out.println(itemController.searchForItem("nails"));
-//
-//        System.out.println(itemController.getLocationCodesToFindItems());
-
-//        System.out.println();
-//
-//        System.out.println(database.getItem1().getItemName());
-//        System.out.println(database.getItem1().toString());
-//        System.out.println(database.getItem2().toString());
-//        System.out.println(database.getItem3().toString());
+        
     }
 
 
