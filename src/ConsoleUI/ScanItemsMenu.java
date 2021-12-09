@@ -18,7 +18,7 @@ public class ScanItemsMenu implements Menu {
         while (true) {
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
-                // TODO
+
                 case 1 -> {
                     System.out.println(Database.getItemDetails());
                     // we scan a barcode (type it in as a placeholder)

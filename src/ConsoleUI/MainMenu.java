@@ -15,7 +15,7 @@ public class MainMenu implements Menu {
         while (true) {
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
-                // TODO
+
                 case 1 -> {
                     new OrderController().createOrder();
                     Menu.goToCreateOrderMenu();
@@ -39,8 +39,8 @@ public class MainMenu implements Menu {
         System.out.println("****** Main menu ******");
         System.out.println(" (1) Create new order");
         System.out.println(" (2) Return to existing order");
-        System.out.println(" (3) Update Order"); // TODO
-        System.out.println(" (4) Find Order"); // TODO
+        System.out.println(" (3) Update Order");
+        System.out.println(" (4) Find Order");
         System.out.println(" (0) Close Application");
         System.out.print("\n Choice:");
     }

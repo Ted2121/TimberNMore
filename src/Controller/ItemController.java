@@ -57,7 +57,18 @@ public class ItemController {
     }
 
     public void clearSearchHistory(){
-        itemContainer.clearSearchHistory();
+        itemContainer.getLocationCodesToFindItems().clear();
+        itemContainer.getSearchedItems().clear();
+    }
+
+    public ArrayList<String> getLocationCodesFromSearched(){
+
+        for (Item item:
+                getSearchedItems()) {
+            getLocationCodesToFindItems().add(item.getLocationCode());
+        }
+
+        return getLocationCodesToFindItems();
     }
 
     public ArrayList<String> getLocationCodesToFindItems() {

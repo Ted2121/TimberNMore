@@ -42,6 +42,8 @@ public interface Menu {
         new FinalizeOrderMenu().runMenu();
     }
 
+    static void goToSearchResultMenu(){ new SearchResultMenu().runMenu();}
+
     static int getIntegerFromUser(){
         int choice = 0;
         try{

@@ -18,7 +18,7 @@ public class CreateOrderMenu implements Menu {
             while (true) {
                 int choice = Menu.getIntegerFromUser();
                 switch (choice) {
-                    // TODO
+
                     case 1 -> Menu.goToSearchItemsMenu();
                     case 2 -> Menu.goToScanItemsMenu();
                     case 3 -> Menu.goToFinalizeOrderMenu();

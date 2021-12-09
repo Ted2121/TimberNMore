@@ -20,13 +20,13 @@ public class SearchForItemsMenu implements Menu{
         while (true){
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
-                // TODO
+
                 case 1 -> {
                     searchQuery();
                     System.out.println(new ItemController().getSearchedItems());
                     writeSearchForItemsMenu();
                 }
-                case 2 -> Menu.goToSearchItemsMenu();
+                case 2 -> Menu.goToSearchResultMenu();
                 case 3 -> Menu.goToCreateOrderMenu();
                 case 4 -> Menu.goToMainMenu();
                 case 0 -> {
