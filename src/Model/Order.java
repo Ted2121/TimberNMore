@@ -71,6 +71,13 @@ public class Order {
         this.format = format;
     }
 
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 
     @Override
     public String toString() {

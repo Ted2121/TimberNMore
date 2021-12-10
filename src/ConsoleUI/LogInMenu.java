@@ -16,9 +16,9 @@ public class LogInMenu implements Menu {
     private void logInMenu() {
         System.out.println("**** Log In ****\n");
         System.out.print("Username: ");
-        username = Menu.getStringFromUser();
+        this.username = Menu.getStringFromUser();
         System.out.print("Password: ");
-        password = Menu.getStringFromUser();
+        this.password = Menu.getStringFromUser();
         checkAccountDetails();
     }
 

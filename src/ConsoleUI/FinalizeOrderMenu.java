@@ -1,13 +1,23 @@
 package ConsoleUI;
 
+import Controller.CustomerController;
 import Controller.ItemController;
 import Controller.OrderController;
+import Model.Customer;
 import Model.ItemContainer;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class FinalizeOrderMenu implements Menu{
 
     OrderController orderController = new OrderController();
     ItemController itemController = new ItemController();
+    CustomerController customerController = new CustomerController();
+
+    private String name;
+    private int id;
+    private Customer identifiedCustomer;
 
     @Override
     public void runMenu() {
@@ -92,4 +102,54 @@ public class FinalizeOrderMenu implements Menu{
         System.out.println(" (0) Close Application");
         System.out.print("\n Choice:");
     }
+
+    private void identifyCustomer(){
+        System.out.println();
+        System.out.println("****** Identify Customer ******");
+        System.out.println();
+        System.out.print("Name: ");
+        this.name = Menu.getStringFromUser();
+      //  customerController.matchName(name);
+        System.out.println("ID: ");
+        this.id = Menu.getIntegerFromUser();
+       // customerController.matchId(Menu.getIntegerFromUser());
+        identifiedCustomer = customerController.getCustomerByName(this.name);
+    }
+
+    //TODO modify price according to discount
+    private void grantDiscount(){
+
+        BigDecimal discount = orderController.totalPrice()
+                .multiply(new BigDecimal(String.valueOf(identifiedCustomer.getDiscountMultiplier()))
+                        .setScale(2, RoundingMode.CEILING));
+        if(customerController.grantDiscount(this.name, this.id)){
+            orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
+        }
+
+    }
+
+//    private void checkAccountDetails() {
+//        if (Menu.grantAccess(username, password)) {
+//            Menu.goToMainMenu();
+//        } else {
+//            System.err.println("Incorrect Username or Password. Please try again!");
+//
+//            Runnable runnable = new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        Thread.sleep(500);
+//                        logInMenu();
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            };
+//
+//            runnable.run();
+//
+//        }
+//
+//
+//    }
 }

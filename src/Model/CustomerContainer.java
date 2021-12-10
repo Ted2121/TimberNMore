@@ -6,9 +6,11 @@ public class CustomerContainer {
 
     private ArrayList<Customer> customers;
     private static CustomerContainer instance;
+    Customer identifiedCustomer;
 
     private CustomerContainer(){
         customers = new ArrayList<Customer>();
+        identifiedCustomer = new Customer();
     }
 
     // singleton
@@ -25,4 +27,8 @@ public class CustomerContainer {
     public ArrayList<Customer> getCustomers() {
         return customers;
     }
+
+//    public double getDiscountMultiplier() {
+//        return cus;
+//    }
 }

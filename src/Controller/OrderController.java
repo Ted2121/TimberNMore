@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 public class OrderController {
     private final OrderContainer orderContainer;
-
     private final ItemController itemController;
+
 
     public OrderController(){
         orderContainer = OrderContainer.getInstance();
@@ -62,8 +62,17 @@ public class OrderController {
         for (Item item:
              getItemsInOrder()) {
             total = total.add(item.getPrice());
+            orderContainer.setTotalPrice(total);
         }
-        return total.setScale(2, RoundingMode.CEILING);
+        return orderContainer.getTotalPrice().setScale(2, RoundingMode.CEILING);
+    }
+
+    public BigDecimal getTotalPrice(){
+        return orderContainer.getTotalPrice().setScale(2, RoundingMode.CEILING);
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice){
+        orderContainer.setTotalPrice(totalPrice);
     }
 
     public String getReceipt(){

@@ -1,5 +1,6 @@
 package Model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class OrderContainer {
@@ -41,6 +42,14 @@ public class OrderContainer {
         if(this.order == null)
             this.order = new Order();
         return this.order;
+    }
+
+    public BigDecimal getTotalPrice(){
+       return order.getTotalPrice();
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice){
+        order.setTotalPrice(totalPrice);
     }
 
 

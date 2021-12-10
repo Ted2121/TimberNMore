@@ -3,8 +3,14 @@ package Controller;
 import Model.Customer;
 import Model.CustomerContainer;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class CustomerController {
     CustomerContainer customerContainer;
+
+    OrderController orderController = new OrderController();
+
 
     public CustomerController(){customerContainer = CustomerContainer.getInstance();}
 
@@ -51,6 +57,17 @@ public class CustomerController {
                 }
         }
         return customer;
+    }
+
+    private void grantDiscount(){
+
+        BigDecimal discount = orderController.totalPrice()
+                .multiply(new BigDecimal(String.valueOf(customerContainer..getDiscountMultiplier()))
+                        .setScale(2, RoundingMode.CEILING));
+        if(customerController.grantDiscount(this.name, this.id)){
+            orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
+        }
+
     }
 
 

@@ -18,6 +18,11 @@ public class Customer {
         globalCustomerId++;
         }
 
+    public Customer() {
+        this.customerId = globalCustomerId;
+        globalCustomerId++;
+    }
+
     public String getName() {
         return name;
     }
