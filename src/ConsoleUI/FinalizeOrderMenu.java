@@ -111,10 +111,8 @@ public class FinalizeOrderMenu implements Menu{
         System.out.println();
         System.out.print("Name: ");
         setName(Menu.getStringFromUser());
-      //  customerController.matchName(name);
         System.out.print("ID: ");
         setId(Menu.getIntegerFromUser());
-       // customerController.matchId(Menu.getIntegerFromUser());
         customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName()));
         customerController.grantDiscount();
         orderController.setCustomer(customerController.getIdentifiedCustomer());

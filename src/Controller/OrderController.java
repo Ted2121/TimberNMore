@@ -58,7 +58,7 @@ public class OrderController {
         return orderContainer.getItemsInOrder();
     }
 
-    public BigDecimal totalPrice(){
+    public BigDecimal totalPrice() throws NullPointerException{
         BigDecimal total = new BigDecimal(0);
         for (Item item:
              getItemsInOrder()) {

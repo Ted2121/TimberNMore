@@ -40,8 +40,8 @@ public class CreateOrderMenu implements Menu {
     private void writeCreateOrderMenu(){
         System.out.println("****** Create Order ******");
         System.out.println(" (1) Search for items");
-        System.out.println(" (2) Scan items"); // TODO
-        System.out.println(" (3) Finalize order"); // TODO
+        System.out.println(" (2) Scan items");
+        System.out.println(" (3) Finalize order");
         System.out.println(" (4) Back to Main Menu");
         System.out.println(" (0) Close Application");
         System.out.print("\n Choice:");

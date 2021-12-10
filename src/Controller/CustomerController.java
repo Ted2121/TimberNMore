@@ -1,6 +1,7 @@
 package Controller;
 
 import ConsoleUI.FinalizeOrderMenu;
+import ConsoleUI.Menu;
 import Model.Customer;
 import Model.CustomerContainer;
 
@@ -23,11 +24,28 @@ public class CustomerController {
     public boolean matchName(String name){
         boolean matched = false;
 
-        for (int i = 0; i < customerContainer.getCustomers().size(); i++){
-            if (customerContainer.getCustomers().get(i).getName().equalsIgnoreCase(name)) {
-                matched = true;
-                break;
+        try {
+            for (int i = 0; i < customerContainer.getCustomers().size(); i++){
+                if (customerContainer.getCustomers().get(i).getName().equalsIgnoreCase(name)) {
+                    matched = true;
+                    break;
+                }
             }
+        } catch (NullPointerException e) {
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                    System.out.println("Returning to main menu");
+                    Menu.goToMainMenu();
+                }
+            };
+            System.err.println("Customer not found!");
+            runnable.run();
         }
 
         return matched;
@@ -36,11 +54,28 @@ public class CustomerController {
     public boolean matchId(int id){
         boolean matched = false;
 
-        for(int i = 0; i < customerContainer.getCustomers().size(); i++){
-            if(customerContainer.getCustomers().get(i).getCustomerId() == id){
-                matched = true;
-                break;
+        try {
+            for(int i = 0; i < customerContainer.getCustomers().size(); i++){
+                if(customerContainer.getCustomers().get(i).getCustomerId() == id){
+                    matched = true;
+                    break;
+                }
             }
+        } catch (NullPointerException e) {
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(500);
+                        System.out.println("Returning to main menu");
+                        Menu.goToMainMenu();
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            };
+            System.err.println("Customer not found!");
+            runnable.run();
         }
         return matched;
     }
@@ -52,22 +87,56 @@ public class CustomerController {
     public Customer getCustomerByName(String name){
         Customer customer = null;
 
-        for(int i = 0; i < customerContainer.getCustomers().size(); i++){
+        try {
+            for(int i = 0; i < customerContainer.getCustomers().size(); i++){
                 if(customerContainer.getCustomers().get(i).getName().equalsIgnoreCase(name)){
                     customer = customerContainer.getCustomers().get(i);
                     break;
                 }
+            }
+        } catch (NullPointerException e) {
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(500);
+                        System.out.println("Returning to main menu");
+                        Menu.goToMainMenu();
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            };
+            System.err.println("Customer not found!");
+            runnable.run();
         }
         return customer;
     }
 
     public void grantDiscount(){
 
-        BigDecimal discount = orderController.totalPrice()
-                .multiply(new BigDecimal(String.valueOf(customerContainer.getIdentifiedCustomer().getDiscountMultiplier()))
-                        .setScale(2, RoundingMode.CEILING));
-        if(grantDiscountCheck(FinalizeOrderMenu.getName(), FinalizeOrderMenu.getId())){
-            orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
+        try {
+            BigDecimal discount = orderController.totalPrice()
+                    .multiply(new BigDecimal(String.valueOf(customerContainer.getIdentifiedCustomer().getDiscountMultiplier()))
+                            .setScale(2, RoundingMode.CEILING));
+            if(grantDiscountCheck(FinalizeOrderMenu.getName(), FinalizeOrderMenu.getId())){
+                orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
+            }
+        } catch (NullPointerException e) {
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(500);
+                        System.out.println("Returning to main menu");
+                        Menu.goToMainMenu();
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            };
+            System.err.println("Customer not found!");
+            runnable.run();
         }
 
     }
@@ -77,6 +146,6 @@ public class CustomerController {
     }
 
     public void setIdentifiedCustomer(Customer identifiedCustomer) {
-         customerContainer.setIdentifiedCustomer(identifiedCustomer);
+        customerContainer.setIdentifiedCustomer(identifiedCustomer);
     }
 }
