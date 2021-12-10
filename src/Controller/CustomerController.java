@@ -41,22 +41,17 @@ public class CustomerController {
         return matchName(name) && matchId(id);
     }
 
+    public Customer getCustomerByName(String name){
+        Customer customer = null;
 
-    // TODO
-// DO NOT PUT THIS IN THE DIAGRAMS
-//
-//        boolean found = false;
-//        int i = 0;
-//        while(!found && i<persons.size()){
-//            if(persons.get(i).getName().equals(name))
-//                found = true;
-//            else
-//                i++;
-//        }
-//        if(found)
-//            return persons.get(i);
-//        else{
-//
-//            return null;}
-//    }
+        for(int i = 0; i < customerContainer.getCustomers().size(); i++){
+                if(customerContainer.getCustomers().get(i).getName().equalsIgnoreCase(name)){
+                    customer = customerContainer.getCustomers().get(i);
+                    break;
+                }
+        }
+        return customer;
+    }
+
+
 }
