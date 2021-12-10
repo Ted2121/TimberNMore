@@ -88,6 +88,6 @@ public class OrderController {
         return "Order\n-----------------------------------\n" +
                 getItemsInOrder() +
                 "\n-----------------------------------\n" +
-                "Total: " + totalPrice();
+                "Total: " + getTotalPrice().setScale(2, RoundingMode.CEILING);
     }
 }

@@ -57,5 +57,15 @@ public class Customer {
     public static int getGlobalCustomerId() {
         return globalCustomerId;
     }
+
+    @Override
+    public String toString() {
+        return "Customer: " + "\n-----------------------------------\n" +
+                "name: " + name + "\n" +
+                "customerId: " + customerId + "\n" +
+                "customerType: " + customerType + "\n" +
+                "discountMultiplier: " + discountMultiplier + "\n" +
+                "";
+    }
 }
 

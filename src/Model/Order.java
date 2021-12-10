@@ -1,6 +1,7 @@
 package Model;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -85,7 +86,7 @@ public class Order {
                 "itemsInOrder: " + itemsInOrder + "\n" +
                 "customer: " + customer + "\n" +
                 "orderDateAndTime: " + orderDateAndTime + "\n" +
-                "totalPrice: " + totalPrice + "\n" +
+                "totalPrice: " + getTotalPrice().setScale(2, RoundingMode.CEILING) + "\n" +
                 "";
     }
 }

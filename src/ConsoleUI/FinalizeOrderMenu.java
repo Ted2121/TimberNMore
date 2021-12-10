@@ -21,6 +21,7 @@ public class FinalizeOrderMenu implements Menu{
 
     @Override
     public void runMenu() {
+        identifyCustomer();
         finalizeOrderMenu();
     }
 
@@ -111,7 +112,7 @@ public class FinalizeOrderMenu implements Menu{
         System.out.print("Name: ");
         setName(Menu.getStringFromUser());
       //  customerController.matchName(name);
-        System.out.println("ID: ");
+        System.out.print("ID: ");
         setId(Menu.getIntegerFromUser());
        // customerController.matchId(Menu.getIntegerFromUser());
         customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName()));
