@@ -15,9 +15,9 @@ public class FinalizeOrderMenu implements Menu{
     ItemController itemController = new ItemController();
     CustomerController customerController = new CustomerController();
 
-    private String name;
-    private int id;
-    private Customer identifiedCustomer;
+    private static String name;
+    private static int id;
+    //private Customer identifiedCustomer;
 
     @Override
     public void runMenu() {
@@ -108,48 +108,40 @@ public class FinalizeOrderMenu implements Menu{
         System.out.println("****** Identify Customer ******");
         System.out.println();
         System.out.print("Name: ");
-        this.name = Menu.getStringFromUser();
+        setName(Menu.getStringFromUser());
       //  customerController.matchName(name);
         System.out.println("ID: ");
-        this.id = Menu.getIntegerFromUser();
+        setId(Menu.getIntegerFromUser());
        // customerController.matchId(Menu.getIntegerFromUser());
-        identifiedCustomer = customerController.getCustomerByName(this.name);
+        customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName())) ;
+    }
+
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        FinalizeOrderMenu.name = name;
+    }
+
+    public static int getId() {
+        return id;
+    }
+
+    public static void setId(int id) {
+        FinalizeOrderMenu.id = id;
     }
 
     //TODO modify price according to discount
-    private void grantDiscount(){
+//    private void grantDiscount(){
+//
+//        BigDecimal discount = orderController.totalPrice()
+//                .multiply(new BigDecimal(String.valueOf(identifiedCustomer.getDiscountMultiplier()))
+//                        .setScale(2, RoundingMode.CEILING));
+//        if(customerController.grantDiscount(this.name, this.id)){
+//            orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
+//        }
 
-        BigDecimal discount = orderController.totalPrice()
-                .multiply(new BigDecimal(String.valueOf(identifiedCustomer.getDiscountMultiplier()))
-                        .setScale(2, RoundingMode.CEILING));
-        if(customerController.grantDiscount(this.name, this.id)){
-            orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
-        }
+
 
     }
-
-//    private void checkAccountDetails() {
-//        if (Menu.grantAccess(username, password)) {
-//            Menu.goToMainMenu();
-//        } else {
-//            System.err.println("Incorrect Username or Password. Please try again!");
-//
-//            Runnable runnable = new Runnable() {
-//                @Override
-//                public void run() {
-//                    try {
-//                        Thread.sleep(500);
-//                        logInMenu();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            };
-//
-//            runnable.run();
-//
-//        }
-//
-//
-//    }
-}

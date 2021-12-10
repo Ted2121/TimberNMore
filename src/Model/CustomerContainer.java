@@ -28,7 +28,15 @@ public class CustomerContainer {
         return customers;
     }
 
-//    public double getDiscountMultiplier() {
+    public Customer getIdentifiedCustomer() {
+        return identifiedCustomer;
+    }
+
+    public void setIdentifiedCustomer(Customer identifiedCustomer) {
+        this.identifiedCustomer = identifiedCustomer;
+    }
+
+    //    public double getDiscountMultiplier() {
 //        return cus;
 //    }
 }

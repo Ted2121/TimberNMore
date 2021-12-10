@@ -1,5 +1,6 @@
 package Controller;
 
+import ConsoleUI.FinalizeOrderMenu;
 import Model.Customer;
 import Model.CustomerContainer;
 
@@ -10,6 +11,7 @@ public class CustomerController {
     CustomerContainer customerContainer;
 
     OrderController orderController = new OrderController();
+//    CustomerController customerController = new CustomerController();
 
 
     public CustomerController(){customerContainer = CustomerContainer.getInstance();}
@@ -62,13 +64,19 @@ public class CustomerController {
     private void grantDiscount(){
 
         BigDecimal discount = orderController.totalPrice()
-                .multiply(new BigDecimal(String.valueOf(customerContainer..getDiscountMultiplier()))
+                .multiply(new BigDecimal(String.valueOf(customerContainer.getIdentifiedCustomer().getDiscountMultiplier()))
                         .setScale(2, RoundingMode.CEILING));
-        if(customerController.grantDiscount(this.name, this.id)){
+        if(grantDiscount(FinalizeOrderMenu.getName(), FinalizeOrderMenu.getId())){
             orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
         }
 
     }
 
+    public Customer getIdentifiedCustomer() {
+        return customerContainer.getIdentifiedCustomer();
+    }
 
+    public void setIdentifiedCustomer(Customer identifiedCustomer) {
+         customerContainer.setIdentifiedCustomer(identifiedCustomer);
+    }
 }
