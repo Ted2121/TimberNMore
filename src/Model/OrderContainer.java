@@ -64,5 +64,13 @@ public class OrderContainer {
         orders.add(order);
     }
 
+    public Customer getCustomer() {
+        return order.getCustomer();
+    }
+
+    public void setCustomer(Customer customer) {
+        order.setCustomer(customer);
+    }
+
 
 }

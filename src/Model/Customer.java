@@ -19,8 +19,7 @@ public class Customer {
         }
 
     public Customer() {
-        this.customerId = globalCustomerId;
-        globalCustomerId++;
+
     }
 
     public String getName() {

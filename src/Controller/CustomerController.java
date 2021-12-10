@@ -45,7 +45,7 @@ public class CustomerController {
         return matched;
     }
 
-    public boolean grantDiscount(String name, int id){
+    public boolean grantDiscountCheck(String name, int id){
         return matchName(name) && matchId(id);
     }
 
@@ -61,12 +61,12 @@ public class CustomerController {
         return customer;
     }
 
-    private void grantDiscount(){
+    public void grantDiscount(){
 
         BigDecimal discount = orderController.totalPrice()
                 .multiply(new BigDecimal(String.valueOf(customerContainer.getIdentifiedCustomer().getDiscountMultiplier()))
                         .setScale(2, RoundingMode.CEILING));
-        if(grantDiscount(FinalizeOrderMenu.getName(), FinalizeOrderMenu.getId())){
+        if(grantDiscountCheck(FinalizeOrderMenu.getName(), FinalizeOrderMenu.getId())){
             orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
         }
 

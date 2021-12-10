@@ -93,6 +93,7 @@ public class FinalizeOrderMenu implements Menu{
         }
     }
 
+    // TODO integrate identifying customer
     private void writeFinalizeOrderMenu() {
         System.out.println("****** Finalize Order ******");
         System.out.println(" (1) Show Order");
@@ -113,7 +114,9 @@ public class FinalizeOrderMenu implements Menu{
         System.out.println("ID: ");
         setId(Menu.getIntegerFromUser());
        // customerController.matchId(Menu.getIntegerFromUser());
-        customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName())) ;
+        customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName()));
+        customerController.grantDiscount();
+        orderController.setCustomer(customerController.getIdentifiedCustomer());
     }
 
     public static String getName() {
@@ -131,17 +134,5 @@ public class FinalizeOrderMenu implements Menu{
     public static void setId(int id) {
         FinalizeOrderMenu.id = id;
     }
-
-    //TODO modify price according to discount
-//    private void grantDiscount(){
-//
-//        BigDecimal discount = orderController.totalPrice()
-//                .multiply(new BigDecimal(String.valueOf(identifiedCustomer.getDiscountMultiplier()))
-//                        .setScale(2, RoundingMode.CEILING));
-//        if(customerController.grantDiscount(this.name, this.id)){
-//            orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
-//        }
-
-
 
     }

@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Customer;
 import Model.Item;
 import Model.Order;
 import Model.OrderContainer;
@@ -73,6 +74,14 @@ public class OrderController {
 
     public void setTotalPrice(BigDecimal totalPrice){
         orderContainer.setTotalPrice(totalPrice);
+    }
+
+    public Customer getCustomer() {
+        return orderContainer.getCustomer();
+    }
+
+    public void setCustomer(Customer customer) {
+        orderContainer.setCustomer(customer);
     }
 
     public String getReceipt(){
