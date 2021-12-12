@@ -60,7 +60,7 @@ public class OrderController {
         for (Item item:
              getItemsInOrder()) {
             total = total.add(item.getPrice());
-            orderContainer.setTotalPrice(total);
+            setTotalPrice(total);
         }
         return orderContainer.getTotalPrice().setScale(2, RoundingMode.CEILING);
     }

@@ -27,6 +27,7 @@ public class UpdateOrderMenu implements Menu{
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 case 1 -> {
+                    customerController.grantDiscount();
                     System.out.println(Database.getInstance().getOrderController().getIdentifiedOrder());
                     writeUpdateOrderMenu();
                 }
