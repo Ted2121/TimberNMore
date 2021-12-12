@@ -84,6 +84,25 @@ public class OrderController {
         orderContainer.setCustomer(customer);
     }
 
+    public Order getIdentifiedOrder() {
+        return orderContainer.getIdentifiedOrder();
+    }
+
+    public void setIdentifiedOrder(Order identifiedOrder) {
+        orderContainer.setIdentifiedOrder(identifiedOrder);
+    }
+
+    public Order findOrderByCustomer(Customer customer){
+        Order identifiedOrder = null;
+
+        for (int i = 0; i < orderContainer.getOrders().size(); i++){
+            if(orderContainer.getOrders().get(i).getCustomer().getName().equalsIgnoreCase(customer.getName())){
+                identifiedOrder = orderContainer.getOrders().get(i);
+            }
+        }
+        return identifiedOrder;
+    }
+
     public String getReceipt(){
         return "Order\n-----------------------------------\n" +
                 getItemsInOrder() +

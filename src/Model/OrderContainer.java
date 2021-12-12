@@ -4,14 +4,15 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class OrderContainer {
-    private final ArrayList<Order> orders;
+    private ArrayList<Order> orders;
+    private Order identifiedOrder;
 
     private static OrderContainer instance;
     private Order order;
 
     private OrderContainer(){
         orders = new ArrayList<Order>();
-
+        this.identifiedOrder = new Order();
     }
 
     // singleton
@@ -72,5 +73,19 @@ public class OrderContainer {
         order.setCustomer(customer);
     }
 
+    public Order getIdentifiedOrder() {
+        return identifiedOrder;
+    }
 
+    public void setIdentifiedOrder(Order identifiedOrder) {
+        this.identifiedOrder = identifiedOrder;
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(ArrayList<Order> orders) {
+        this.orders = orders;
+    }
 }

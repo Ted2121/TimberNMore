@@ -19,7 +19,21 @@ public interface Menu {
     }
 
     static void goToMainMenu(){
-        new MainMenu().runMenu();
+
+        // Sleeping the thread for half a second because it was displaying err message "Customer not found!" in the wrong order
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(500);
+                System.out.println("Returning to main menu");
+                new MainMenu().runMenu();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        runnable.run();
     }
 
     static void goToCreateOrderMenu(){

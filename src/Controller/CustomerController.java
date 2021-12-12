@@ -32,20 +32,9 @@ public class CustomerController {
                 }
             }
         } catch (NullPointerException e) {
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                    System.out.println("Returning to main menu");
-                    Menu.goToMainMenu();
-                }
-            };
-            System.err.println("Customer not found!");
-            runnable.run();
+
+            System.err.println("Customer or order could not be found!");
+            Menu.goToMainMenu();
         }
 
         return matched;
@@ -62,20 +51,9 @@ public class CustomerController {
                 }
             }
         } catch (NullPointerException e) {
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(500);
-                        System.out.println("Returning to main menu");
-                        Menu.goToMainMenu();
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            };
-            System.err.println("Customer not found!");
-            runnable.run();
+
+            System.err.println("Customer or order could not be found!");
+            Menu.goToMainMenu();
         }
         return matched;
     }
@@ -95,20 +73,9 @@ public class CustomerController {
                 }
             }
         } catch (NullPointerException e) {
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(500);
-                        System.out.println("Returning to main menu");
-                        Menu.goToMainMenu();
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            };
-            System.err.println("Customer not found!");
-            runnable.run();
+
+            System.err.println("Customer or order could not be found!");
+            Menu.goToMainMenu();
         }
         return customer;
     }
@@ -123,20 +90,9 @@ public class CustomerController {
                 orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
             }
         } catch (NullPointerException e) {
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(500);
-                        System.out.println("Returning to main menu");
-                        Menu.goToMainMenu();
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            };
+
             System.err.println("Customer not found!");
-            runnable.run();
+            Menu.goToMainMenu();
         }
 
     }
