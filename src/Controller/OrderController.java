@@ -89,7 +89,8 @@ public class OrderController {
         orderContainer.setIdentifiedOrder(identifiedOrder);
     }
 
-    public Order findOrderByCustomer(Customer customer){
+    // With this method we get an order that matches the customer parameter
+    public Order findOrderByCustomerUsingName(Customer customer){
         Order identifiedOrder = null;
 
         for (int i = 0; i < orderContainer.getOrders().size(); i++){
@@ -104,18 +105,45 @@ public class OrderController {
         return identifiedOrder;
     }
 
-    public void matchOrder(){
+    public Order findOrderByCustomerUsingId(Customer customer){
+        Order identifiedOrder = null;
+
+        for (int i = 0; i < orderContainer.getOrders().size(); i++){
+            if(orderContainer.getOrders().get(i).getCustomer().getCustomerId() == customer.getCustomerId()){
+                identifiedOrder = orderContainer.getOrders().get(i);
+            }
+        }
+        if (identifiedOrder == null){
+            System.err.println("Order could not be found!");
+            Menu.goToMainMenu();
+        }
+        return identifiedOrder;
+    }
+
+
+
+
+    public void matchOrderByName(){
 
         try {
             Database.getInstance().getCustomerController().setIdentifiedCustomer(Database.getInstance().getCustomerController().getCustomerByName(FinalizeOrderMenu.getName()));
-            setIdentifiedOrder(findOrderByCustomer(Database.getInstance().getCustomerController().getIdentifiedCustomer()));
+            setIdentifiedOrder(findOrderByCustomerUsingName(Database.getInstance().getCustomerController().getIdentifiedCustomer()));
         } catch (NullPointerException e) {
             System.err.println("Customer or order could not be found!");
             Menu.goToMainMenu();
         }
-
     }
 
+    public void matchOrderById(){
+
+        try {
+            Database.getInstance().getCustomerController().setIdentifiedCustomer(Database.getInstance().getCustomerController().getCustomerById(FinalizeOrderMenu.getId()));
+            setIdentifiedOrder(findOrderByCustomerUsingId(Database.getInstance().getCustomerController().getIdentifiedCustomer()));
+        } catch (NullPointerException e) {
+            System.err.println("Customer or order could not be found!");
+            Menu.goToMainMenu();
+        }
+    }
 
 
     public String getReceipt(){

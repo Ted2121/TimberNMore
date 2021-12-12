@@ -19,7 +19,7 @@ public class UpdateOrderMenu implements Menu{
 
 
         Menu.writeIdentifyCustomer();
-        orderController.matchOrder();
+        orderController.matchOrderByName();
 
         writeUpdateOrderMenu();
 
@@ -71,9 +71,5 @@ public class UpdateOrderMenu implements Menu{
         System.out.print("\n Choice:");
 
     }
-
-
-
-
 
 }

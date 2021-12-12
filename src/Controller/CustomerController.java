@@ -5,6 +5,7 @@ import ConsoleUI.Menu;
 import Model.Customer;
 import Model.CustomerContainer;
 import Model.Database;
+import Model.Order;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -70,6 +71,24 @@ public class CustomerController {
         try {
             for(int i = 0; i < customerContainer.getCustomers().size(); i++){
                 if(customerContainer.getCustomers().get(i).getName().equalsIgnoreCase(name)){
+                    customer = customerContainer.getCustomers().get(i);
+                    break;
+                }
+            }
+        } catch (NullPointerException e) {
+
+            System.err.println("Customer or order could not be found!");
+            Menu.goToMainMenu();
+        }
+        return customer;
+    }
+
+    public Customer getCustomerById(int id){
+        Customer customer = null;
+
+        try {
+            for(int i = 0; i < customerContainer.getCustomers().size(); i++){
+                if(customerContainer.getCustomers().get(i).getCustomerId() == id){
                     customer = customerContainer.getCustomers().get(i);
                     break;
                 }
