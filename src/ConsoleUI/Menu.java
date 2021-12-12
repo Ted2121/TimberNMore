@@ -26,7 +26,7 @@ public interface Menu {
             public void run() {
                 try {
                     Thread.sleep(500);
-                    System.out.println("Returning to main menu");
+
                     new MainMenu().runMenu();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -44,7 +44,11 @@ public interface Menu {
         new SearchForItemsMenu().runMenu();
     }
 
-    // I put this here so that 2 different menus can use it
+    static void goToUpdateOrderMenu(){
+        new UpdateOrderMenu().runMenu();
+    }
+
+    // I put these printing methods here so that 2 different menus can use them
     static void writeIdentifyCustomer(){
         System.out.println();
         System.out.println("****** Identify Customer ******");
@@ -61,12 +65,17 @@ public interface Menu {
         return Menu.getIntegerFromUser();
     }
 
-    static void scanProcess(){
-        System.out.println(Database.getItemDetails());
+    static void scanToAddProcess(){
+        System.out.println(Database.getInstance().getItemDetails());
         // we scan a barcode (type it in as a placeholder)
         // we then find the matching item with the barcode
         // and we add that item to the current order
-        Database.getInstance().getItemController().scanItem(Menu.scanQuery());
+        Database.getInstance().getItemController().scanAndAdd(Menu.scanQuery());
+    }
+
+    static void scanToRemoveProcess(){
+        System.out.println(Database.getItemDetails());
+        Database.getInstance().getItemController().scanAndRemove(Menu.scanQuery());
     }
 
     static void goToScanItemsMenu(){
@@ -138,11 +147,9 @@ public interface Menu {
         return matchUsername(username) && matchPassword(password);
     }
 
-
-
-    // will be used afer order is finalized
+    // will be used after order is finalized
     static void deleteSearchHistory(){
-        new ItemController().getSearchedItems().clear();
+        Database.getInstance().getItemController().getSearchedItems().clear();
     }
 
 }

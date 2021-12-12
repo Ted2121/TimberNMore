@@ -1,5 +1,6 @@
 package Controller;
 
+import ConsoleUI.Menu;
 import Model.Item;
 import Model.ItemContainer;
 import Model.OrderContainer;
@@ -37,7 +38,7 @@ public class ItemController {
         }
     }
 
-    public void scanItem(int barcode){
+    public Item scanItem(int barcode){
         Item matchingItem = null;
         try {
             for (Item item:itemContainer.getInventory()) {
@@ -45,15 +46,26 @@ public class ItemController {
 
                     matchingItem = item;
 
-                    OrderContainer.getInstance().createAndGetItemsInOrder().add(matchingItem);
+
                 }
             }
             if (matchingItem == null){
                 System.err.println("Item not found");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NullPointerException e) {
+            System.err.println("Item could not be found");
+            Menu.goToMainMenu();
         }
+        return matchingItem;
+    }
+
+    public void scanAndAdd(int barcode){
+
+            OrderContainer.getInstance().createAndGetItemsInOrder().add(scanItem(barcode));
+    }
+
+    public void scanAndRemove(int barcode){
+        OrderContainer.getInstance().createAndGetItemsInOrder().remove(scanItem(barcode));
     }
 
     public void clearSearchHistory(){

@@ -1,9 +1,5 @@
 package ConsoleUI;
 
-import Controller.ItemController;
-import Controller.OrderController;
-import Model.Database;
-
 public class ScanItemsMenu implements Menu {
 
     @Override
@@ -20,7 +16,7 @@ public class ScanItemsMenu implements Menu {
             switch (choice) {
 
                 case 1 -> {
-                    Menu.scanProcess();
+                    Menu.scanToAddProcess();
                     // for testing:
                     // System.out.println(new OrderController().getItemsInOrder());
                     writeScanItemsMenu();

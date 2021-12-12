@@ -1,5 +1,7 @@
 package Model;
 
+import ConsoleUI.Menu;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -78,7 +80,9 @@ public class OrderContainer {
     }
 
     public void setIdentifiedOrder(Order identifiedOrder) {
-        this.identifiedOrder = identifiedOrder;
+
+            this.identifiedOrder = identifiedOrder;
+
     }
 
     public ArrayList<Order> getOrders() {

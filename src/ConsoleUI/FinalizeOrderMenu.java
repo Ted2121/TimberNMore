@@ -60,7 +60,7 @@ public class FinalizeOrderMenu implements Menu{
                     try {
                         System.out.println(orderController.getReceipt());
                         orderController.addOrderToDatabase(orderController.getOrder());
-                        itemController.clearSearchHistory();
+                        Menu.deleteSearchHistory();
                         System.out.println("Order finalized. Going back to Main Menu");
                     } catch (NullPointerException e) {
                         System.err.println("Order not found!");

@@ -12,17 +12,16 @@ public class Database {
     private EmployeeController employeeController = new EmployeeController();
     private OrderController orderController = new OrderController();
     private CustomerController customerController = new CustomerController();
-    private static Database instance;
+    private static Database instance = new Database();
     // created this static string to be able to call its getter in void main
     private static String itemDetails;
 
     public Database(){
-        getNamesAndBarcodes();
+        setItemDetails();
     }
 
     public static Database getInstance(){
-        if(instance==null);
-            instance = new Database();
+
         return instance;
     }
 
@@ -108,19 +107,13 @@ public class Database {
     }
 
     // this is used to initialize a static string to non-static items data
-    public String getNamesAndBarcodes(){
-        this.itemDetails = item1.getItemName() + ": " + getItem1Barcode() + "\n" +
+    public void setItemDetails(){
+        itemDetails = item1.getItemName() + ": " + getItem1Barcode() + "\n" +
                 item2.getItemName() + ": " + getItem2Barcode() + "\n" +
                 item3.getItemName() + ": " + getItem3Barcode() + "\n" +
                 item4.getItemName() + ": " + getItem4Barcode() + "\n" +
                 item5.getItemName() + ": " + getItem5Barcode() + "\n";
-        return itemDetails;
     }
-
-//    public static Database getDatabase() {
-//
-//        return instance;
-//    }
 
     public static String getItemDetails() {
         return itemDetails;

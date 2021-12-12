@@ -1,12 +1,16 @@
 package ConsoleUI;
 
 import Controller.OrderController;
+import Model.Database;
 
 public class MainMenu implements Menu {
 
+
     @Override
     public void runMenu() {
+
         mainMenu();
+
     }
 
     @SuppressWarnings("InfiniteLoopStatement")
@@ -17,14 +21,14 @@ public class MainMenu implements Menu {
             switch (choice) {
 
                 case 1 -> {
-                    new OrderController().createOrder();
+                    Database.getInstance().getOrderController().createOrder();
                     Menu.goToCreateOrderMenu();
                 }
                 case 2 ->{
-                    new OrderController().getOrder();
+                    Database.getInstance().getOrderController().getOrder();
                     Menu.goToCreateOrderMenu();
                 }
-                case 3 -> System.out.println();
+                case 3 -> Menu.goToUpdateOrderMenu();
                 case 4 -> System.out.println();
                 case 9 -> writeMainMenu();
                 case 0 -> {
@@ -49,4 +53,5 @@ public class MainMenu implements Menu {
         System.out.println(" (0) Close Application");
         System.out.print("\n Choice:");
     }
+
 }

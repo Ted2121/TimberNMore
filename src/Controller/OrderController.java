@@ -97,13 +97,22 @@ public class OrderController {
                 identifiedOrder = orderContainer.getOrders().get(i);
             }
         }
+        if (identifiedOrder == null){
+            System.err.println("Order could not be found!");
+            Menu.goToMainMenu();
+        }
         return identifiedOrder;
     }
 
     public void matchOrder(){
 
-        Database.getInstance().getCustomerController().setIdentifiedCustomer(Database.getInstance().getCustomerController().getCustomerByName(FinalizeOrderMenu.getName()));
-        setIdentifiedOrder(findOrderByCustomer(Database.getInstance().getCustomerController().getIdentifiedCustomer()));
+        try {
+            Database.getInstance().getCustomerController().setIdentifiedCustomer(Database.getInstance().getCustomerController().getCustomerByName(FinalizeOrderMenu.getName()));
+            setIdentifiedOrder(findOrderByCustomer(Database.getInstance().getCustomerController().getIdentifiedCustomer()));
+        } catch (NullPointerException e) {
+            System.err.println("Customer or order could not be found!");
+            Menu.goToMainMenu();
+        }
 
     }
 
