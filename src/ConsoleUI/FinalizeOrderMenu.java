@@ -107,7 +107,7 @@ public class FinalizeOrderMenu implements Menu{
     }
 
     private void identifyCustomer(){
-        Menu.writeIdentifyCustomer();
+        Menu.askCustomerType();
         customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName()));
         customerController.grantDiscount();
         orderController.setCustomer(customerController.getIdentifiedCustomer());

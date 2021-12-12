@@ -68,7 +68,9 @@ public interface Menu {
         if (Menu.getIntegerFromUser() == 1){
             Menu.writeIdentifyCustomer();
         }else{
-
+            FinalizeOrderMenu.setName("guest");
+            Database.getInstance().getCustomerController().createGuestCustomer();
+            System.out.println(Database.getInstance().getCustomerController().getCustomerByName("guest"));
         }
     }
 

@@ -28,7 +28,9 @@ public class CustomerContainer {
     }
 
     public void createGuestCustomer() {
-        guestCustomers.add(new Customer("Guest", "guest"));
+        Customer guest = new Customer("Guest", "guest");
+        guestCustomers.add(guest);
+        customers.add(guest);
 
     }
 
