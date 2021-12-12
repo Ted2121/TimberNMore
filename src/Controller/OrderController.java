@@ -1,9 +1,8 @@
 package Controller;
 
-import Model.Customer;
-import Model.Item;
-import Model.Order;
-import Model.OrderContainer;
+import ConsoleUI.FinalizeOrderMenu;
+import ConsoleUI.Menu;
+import Model.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -11,13 +10,11 @@ import java.util.ArrayList;
 
 public class OrderController {
     private final OrderContainer orderContainer;
-    private final ItemController itemController;
+
 
 
     public OrderController(){
         orderContainer = OrderContainer.getInstance();
-        itemController = new ItemController();
-
     }
 
     public void addItemsInOrder(Item item){
@@ -40,10 +37,10 @@ public class OrderController {
     // if found, adds it to the itemsInOrder ArrayList
     public void addItemToOrder(int barcode){
 
-        for (int i = 0; i < itemController.getInventory().size(); i++) {
-            int barcodeOfItem = itemController.getInventory().get(i).getBarcode();
+        for (int i = 0; i < Database.getInstance().getItemController().getInventory().size(); i++) {
+            int barcodeOfItem = Database.getInstance().getItemController().getInventory().get(i).getBarcode();
             if (barcode == barcodeOfItem){
-                createAndGetItemsInOrder().add(itemController.getInventory().get(i));
+                createAndGetItemsInOrder().add(Database.getInstance().getItemController().getInventory().get(i));
             }else {
                 System.out.println("Something went wrong here"); //for debugging
             }
@@ -102,6 +99,15 @@ public class OrderController {
         }
         return identifiedOrder;
     }
+
+    public void matchOrder(){
+
+        Database.getInstance().getCustomerController().setIdentifiedCustomer(Database.getInstance().getCustomerController().getCustomerByName(FinalizeOrderMenu.getName()));
+        setIdentifiedOrder(findOrderByCustomer(Database.getInstance().getCustomerController().getIdentifiedCustomer()));
+
+    }
+
+
 
     public String getReceipt(){
         return "Order\n-----------------------------------\n" +

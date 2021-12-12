@@ -4,6 +4,7 @@ import ConsoleUI.FinalizeOrderMenu;
 import ConsoleUI.Menu;
 import Model.Customer;
 import Model.CustomerContainer;
+import Model.Database;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -11,11 +12,13 @@ import java.math.RoundingMode;
 public class CustomerController {
     CustomerContainer customerContainer;
 
-    OrderController orderController = new OrderController();
+
 //    CustomerController customerController = new CustomerController();
 
 
-    public CustomerController(){customerContainer = CustomerContainer.getInstance();}
+    public CustomerController(){customerContainer = CustomerContainer.getInstance();
+       // database = Database.getInstance();
+    }
 
     public void addCustomer(Customer customer){
         customerContainer.addCustomer(customer);
@@ -83,15 +86,15 @@ public class CustomerController {
     public void grantDiscount(){
 
         try {
-            BigDecimal discount = orderController.totalPrice()
+            BigDecimal discount = Database.getInstance().getOrderController().totalPrice()
                     .multiply(new BigDecimal(String.valueOf(customerContainer.getIdentifiedCustomer().getDiscountMultiplier()))
                             .setScale(2, RoundingMode.CEILING));
             if(grantDiscountCheck(FinalizeOrderMenu.getName(), FinalizeOrderMenu.getId())){
-                orderController.setTotalPrice(orderController.totalPrice().subtract(discount));
+                Database.getInstance().getOrderController().setTotalPrice(Database.getInstance().getOrderController().totalPrice().subtract(discount));
             }
         } catch (NullPointerException e) {
 
-            System.err.println("Customer not found!");
+            System.err.println("Customer or order could not be found!");
             Menu.goToMainMenu();
         }
 

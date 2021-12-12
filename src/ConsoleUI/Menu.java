@@ -26,8 +26,8 @@ public interface Menu {
             public void run() {
                 try {
                     Thread.sleep(500);
-                System.out.println("Returning to main menu");
-                new MainMenu().runMenu();
+                    System.out.println("Returning to main menu");
+                    new MainMenu().runMenu();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -42,6 +42,31 @@ public interface Menu {
 
     static void goToSearchItemsMenu(){
         new SearchForItemsMenu().runMenu();
+    }
+
+    // I put this here so that 2 different menus can use it
+    static void writeIdentifyCustomer(){
+        System.out.println();
+        System.out.println("****** Identify Customer ******");
+        System.out.println();
+        System.out.print("Name: ");
+        FinalizeOrderMenu.setName(Menu.getStringFromUser());
+        System.out.print("ID: ");
+        FinalizeOrderMenu.setId(Menu.getIntegerFromUser());
+    }
+
+    static int scanQuery() {
+        System.out.println();
+        System.out.println("Type in the barcode (placeholder for barcode scanner):");
+        return Menu.getIntegerFromUser();
+    }
+
+    static void scanProcess(){
+        System.out.println(Database.getItemDetails());
+        // we scan a barcode (type it in as a placeholder)
+        // we then find the matching item with the barcode
+        // and we add that item to the current order
+        Database.getInstance().getItemController().scanItem(Menu.scanQuery());
     }
 
     static void goToScanItemsMenu(){
@@ -91,9 +116,9 @@ public interface Menu {
             if (employeeController.getEmployees().get(i).getUsername().equalsIgnoreCase(username)) {
                 matched = true;
             }
-            }
-        return matched;
         }
+        return matched;
+    }
 
     static boolean matchPassword(String password){
 
@@ -120,6 +145,6 @@ public interface Menu {
         new ItemController().getSearchedItems().clear();
     }
 
-    }
+}
 
 

@@ -25,6 +25,7 @@ public class FinalizeOrderMenu implements Menu{
         finalizeOrderMenu();
     }
 
+//TODO add a way for unregistered customers to buy things
     @SuppressWarnings("InfiniteLoopStatement")
     private void finalizeOrderMenu(){
         writeFinalizeOrderMenu();
@@ -94,7 +95,7 @@ public class FinalizeOrderMenu implements Menu{
         }
     }
 
-    // TODO integrate identifying customer
+
     private void writeFinalizeOrderMenu() {
         System.out.println("****** Finalize Order ******");
         System.out.println(" (1) Show Order");
@@ -106,13 +107,7 @@ public class FinalizeOrderMenu implements Menu{
     }
 
     private void identifyCustomer(){
-        System.out.println();
-        System.out.println("****** Identify Customer ******");
-        System.out.println();
-        System.out.print("Name: ");
-        setName(Menu.getStringFromUser());
-        System.out.print("ID: ");
-        setId(Menu.getIntegerFromUser());
+        Menu.writeIdentifyCustomer();
         customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName()));
         customerController.grantDiscount();
         orderController.setCustomer(customerController.getIdentifiedCustomer());

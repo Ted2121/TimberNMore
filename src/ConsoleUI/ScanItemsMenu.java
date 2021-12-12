@@ -20,13 +20,9 @@ public class ScanItemsMenu implements Menu {
             switch (choice) {
 
                 case 1 -> {
-                    System.out.println(Database.getItemDetails());
-                    // we scan a barcode (type it in as a placeholder)
-                    // we then find the matching item with the barcode
-                    // and we add that item to the current order
-                    new ItemController().scanItem(scanQuery());
+                    Menu.scanProcess();
                     // for testing:
-                    System.out.println(new OrderController().getItemsInOrder());
+                    // System.out.println(new OrderController().getItemsInOrder());
                     writeScanItemsMenu();
                 }
                 case 2 -> Menu.goToFinalizeOrderMenu();
@@ -45,11 +41,7 @@ public class ScanItemsMenu implements Menu {
         }
     }
 
-    private int scanQuery() {
-        System.out.println();
-        System.out.println("Type in the barcode (placeholder for barcode scanner):");
-        return Menu.getIntegerFromUser();
-    }
+
 
     private void writeScanItemsMenu() {
         System.out.println("****** Scan Items ******");

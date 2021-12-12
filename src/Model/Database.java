@@ -12,12 +12,18 @@ public class Database {
     private EmployeeController employeeController = new EmployeeController();
     private OrderController orderController = new OrderController();
     private CustomerController customerController = new CustomerController();
-    private static Database database = new Database();
+    private static Database instance;
     // created this static string to be able to call its getter in void main
     private static String itemDetails;
 
     public Database(){
         getNamesAndBarcodes();
+    }
+
+    public static Database getInstance(){
+        if(instance==null);
+            instance = new Database();
+        return instance;
     }
 
     Item item1 = new Item('T', 11, "Hammer", true, new BigDecimal("50.00"));
@@ -111,12 +117,28 @@ public class Database {
         return itemDetails;
     }
 
-    public static Database getDatabase() {
-
-        return database;
-    }
+//    public static Database getDatabase() {
+//
+//        return instance;
+//    }
 
     public static String getItemDetails() {
         return itemDetails;
+    }
+
+    public ItemController getItemController() {
+        return itemController;
+    }
+
+    public EmployeeController getEmployeeController() {
+        return employeeController;
+    }
+
+    public OrderController getOrderController() {
+        return orderController;
+    }
+
+    public CustomerController getCustomerController() {
+        return customerController;
     }
 }

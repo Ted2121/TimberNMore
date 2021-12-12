@@ -11,7 +11,7 @@ public class Run {
         OrderController orderController = new OrderController();
         ItemController itemController = new ItemController();
 
-    Database.getDatabase().populateDatabase();
+    Database.getInstance().populateDatabase();
       //  System.out.println(Database.getItemDetails());
 
 
