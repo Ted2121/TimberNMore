@@ -27,6 +27,7 @@ public class UpdateOrderMenu implements Menu{
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
                 case 1 -> {
+                    // grantDiscount() is a necessary call to update the price by calling the method setTotalPrice() internally
                     customerController.grantDiscount();
                     System.out.println(Database.getInstance().getOrderController().getIdentifiedOrder());
                     writeUpdateOrderMenu();

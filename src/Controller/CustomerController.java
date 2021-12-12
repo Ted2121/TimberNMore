@@ -12,18 +12,14 @@ import java.math.RoundingMode;
 public class CustomerController {
     CustomerContainer customerContainer;
 
-
-//    CustomerController customerController = new CustomerController();
-
-
     public CustomerController(){customerContainer = CustomerContainer.getInstance();
-       // database = Database.getInstance();
     }
 
     public void addCustomer(Customer customer){
         customerContainer.addCustomer(customer);
     }
 
+    // This method is used to check if the name of a customer matches the String name parameter
     public boolean matchName(String name){
         boolean matched = false;
 
@@ -43,6 +39,7 @@ public class CustomerController {
         return matched;
     }
 
+    // This method is used to check if the id of a customer matches the int id parameter
     public boolean matchId(int id){
         boolean matched = false;
 
@@ -61,10 +58,12 @@ public class CustomerController {
         return matched;
     }
 
+    // This method checks if both name and id match with a customer
     public boolean grantDiscountCheck(String name, int id){
         return matchName(name) && matchId(id);
     }
 
+    // This method is used to get the customer that has a name matching the String name parameter
     public Customer getCustomerByName(String name){
         Customer customer = null;
 
@@ -83,6 +82,10 @@ public class CustomerController {
         return customer;
     }
 
+    // This method is used to calculate the discount that needs to be applied depending on the customer type,
+    // after the discount is calculated, the totalPrice is set according to the discount
+    // The price before applying the discount is calculated in the totalPrice() method by
+    // adding all the prices of the itemsInOrder ArrayList
     public void grantDiscount(){
 
         try {
