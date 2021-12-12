@@ -33,7 +33,7 @@ public class FinalizeOrderMenu implements Menu{
         while (true) {
             int choice = Menu.getIntegerFromUser();
             switch (choice) {
-                // TODO
+
                 case 1 -> {
                     try {
                         System.out.println(orderController.getOrder());

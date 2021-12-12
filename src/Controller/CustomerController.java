@@ -110,4 +110,8 @@ public class CustomerController {
     public void setIdentifiedCustomer(Customer identifiedCustomer) {
         customerContainer.setIdentifiedCustomer(identifiedCustomer);
     }
+
+    public void createGuestCustomer(){
+        customerContainer.createGuestCustomer();
+    }
 }

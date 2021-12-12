@@ -1,11 +1,14 @@
 package Model;
 
+import java.time.LocalDateTime;
+
 public class Customer {
     private String name;
     private static int globalCustomerId = 1;
     private int customerId;
     private String customerType;
     private double discountMultiplier;
+    private LocalDateTime guestCreationTime;
 
     public Customer(String name, String customerType) {
         this.customerId = globalCustomerId;
@@ -15,6 +18,8 @@ public class Customer {
             case "premium" -> 0.1;
             case "regular" -> 0.05;
             default -> 0;};
+        // used for guest customer identification
+        guestCreationTime = LocalDateTime.now();
         globalCustomerId++;
         }
 
@@ -56,6 +61,14 @@ public class Customer {
 
     public static int getGlobalCustomerId() {
         return globalCustomerId;
+    }
+
+    public LocalDateTime getGuestCreationTime() {
+        return guestCreationTime;
+    }
+
+    public void setGuestCreationTime(LocalDateTime guestCreationTime) {
+        this.guestCreationTime = guestCreationTime;
     }
 
     @Override

@@ -59,6 +59,19 @@ public interface Menu {
         FinalizeOrderMenu.setId(Menu.getIntegerFromUser());
     }
 
+    static void askCustomerType(){
+        System.out.println("****** Customer Type ******");
+        System.out.println();
+        System.out.println(" (1) Registered Customer");
+        System.out.println(" (2) Guest Customer");
+
+        if (Menu.getIntegerFromUser() == 1){
+            Menu.writeIdentifyCustomer();
+        }else{
+
+        }
+    }
+
     static int scanQuery() {
         System.out.println();
         System.out.println("Type in the barcode (placeholder for barcode scanner):");
