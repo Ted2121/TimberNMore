@@ -17,9 +17,18 @@ public class UpdateOrderMenu implements Menu{
     @SuppressWarnings("InfiniteLoopStatement")
     private void updateOrderMenu(){
 
-
-        Menu.writeIdentifyCustomer();
+        int customerTypeChoice = Menu.askCustomerType();
+        if(customerTypeChoice == 1){
+            Menu.writeIdentifyCustomer();
         orderController.matchOrderByName();
+        }else{
+            System.out.println("***** Guest History *****");
+            System.out.println(Database.getInstance().getCustomerController().getGuestDetails());
+
+            Menu.writeIdentifyCustomer();
+            orderController.matchOrderById();
+        }
+
 
         writeUpdateOrderMenu();
 

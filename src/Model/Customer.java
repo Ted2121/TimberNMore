@@ -1,5 +1,7 @@
 package Model;
 
+import ConsoleUI.Utility;
+
 import java.time.LocalDateTime;
 
 public class Customer {
@@ -8,7 +10,7 @@ public class Customer {
     private int customerId;
     private String customerType;
     private double discountMultiplier;
-    private LocalDateTime guestCreationTime;
+    private String guestCreationTime;
 
     public Customer(String name, String customerType) {
         this.customerId = globalCustomerId;
@@ -19,7 +21,7 @@ public class Customer {
             case "regular" -> 0.05;
             default -> 0;};
         // used for guest customer identification
-        guestCreationTime = LocalDateTime.now();
+        this.guestCreationTime = LocalDateTime.now().format(Utility.getFormat());
         globalCustomerId++;
         }
 
@@ -63,11 +65,11 @@ public class Customer {
         return globalCustomerId;
     }
 
-    public LocalDateTime getGuestCreationTime() {
+    public String getGuestCreationTime() {
         return guestCreationTime;
     }
 
-    public void setGuestCreationTime(LocalDateTime guestCreationTime) {
+    public void setGuestCreationTime(String guestCreationTime) {
         this.guestCreationTime = guestCreationTime;
     }
 

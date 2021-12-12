@@ -59,19 +59,14 @@ public interface Menu {
         FinalizeOrderMenu.setId(Menu.getIntegerFromUser());
     }
 
-    static void askCustomerType(){
+    static int askCustomerType(){
         System.out.println("****** Customer Type ******");
         System.out.println();
         System.out.println(" (1) Registered Customer");
         System.out.println(" (2) Guest Customer");
 
-        if (Menu.getIntegerFromUser() == 1){
-            Menu.writeIdentifyCustomer();
-        }else{
-            FinalizeOrderMenu.setName("guest");
-            Database.getInstance().getCustomerController().createGuestCustomer();
-            System.out.println(Database.getInstance().getCustomerController().getCustomerByName("guest"));
-        }
+
+        return getIntegerFromUser();
     }
 
     static int scanQuery() {

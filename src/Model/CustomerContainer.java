@@ -34,19 +34,20 @@ public class CustomerContainer {
 
     }
 
-    public StringBuilder getGuestDetails(){
-        StringBuilder details = null;
+    public String getGuestDetails(){
+        String details = "";
 
         try {
             for (Customer guest:
                  guestCustomers) {
-                details.append("Name: ").append(guest.getName())
-                        .append("\nID: ").append(guest.getCustomerId())
-                        .append("\nDate and time: ").append(guest.getGuestCreationTime())
-                        .append("\n-----------------------------------\n");
+                details += "Name: " + guest.getName() +
+                        "\nID: " + guest.getCustomerId() +
+                        "\nDate and time: " + guest.getGuestCreationTime() +
+                        "\n-----------------------------------\n";
             }
         } catch (NullPointerException e) {
             System.err.println("No guest to display");
+            System.out.println(guestCustomers.toString());
             Menu.goToMainMenu();
         }
         return details;

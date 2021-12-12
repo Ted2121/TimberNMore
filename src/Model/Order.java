@@ -1,9 +1,10 @@
 package Model;
 
+import ConsoleUI.Utility;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Order {
@@ -12,13 +13,13 @@ public class Order {
     private Customer customer;
     private static int orderId = 1;
     private String orderDateAndTime;
-    private DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
     private BigDecimal totalPrice;
 
     public Order() {
         //itemsInOrder = new ArrayList<>();
         // We set the orderDateAndTime to the formatted LocalDateTime.now()
-        this.orderDateAndTime = LocalDateTime.now().format(format);
+        this.orderDateAndTime = LocalDateTime.now().format(Utility.getFormat());
         // We increment orderId every time we create a new order
         orderId++;
     }
@@ -64,14 +65,6 @@ public class Order {
         this.orderDateAndTime = orderDateAndTime;
     }
 
-    public DateTimeFormatter getFormat() {
-        return format;
-    }
-
-    public void setFormat(DateTimeFormatter format) {
-        this.format = format;
-    }
-
     public BigDecimal getTotalPrice() {
         return totalPrice;
     }
@@ -79,6 +72,8 @@ public class Order {
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+
 
     @Override
     public String toString() {

@@ -133,4 +133,8 @@ public class CustomerController {
     public void createGuestCustomer(){
         customerContainer.createGuestCustomer();
     }
+
+    public String getGuestDetails(){
+        return customerContainer.getGuestDetails();
+    }
 }

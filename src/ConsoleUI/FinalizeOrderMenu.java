@@ -4,6 +4,7 @@ import Controller.CustomerController;
 import Controller.ItemController;
 import Controller.OrderController;
 import Model.Customer;
+import Model.Database;
 import Model.ItemContainer;
 
 import java.math.BigDecimal;
@@ -107,7 +108,15 @@ public class FinalizeOrderMenu implements Menu{
     }
 
     private void identifyCustomer(){
-        Menu.askCustomerType();
+        int choice = Menu.askCustomerType();
+
+        if (choice == 1){
+            Menu.writeIdentifyCustomer();
+        }else{
+            FinalizeOrderMenu.setName("guest");
+            Database.getInstance().getCustomerController().createGuestCustomer();
+            System.out.println(Database.getInstance().getCustomerController().getCustomerByName(getName()));
+        }
         customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName()));
         customerController.grantDiscount();
         orderController.setCustomer(customerController.getIdentifiedCustomer());
