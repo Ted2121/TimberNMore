@@ -79,6 +79,10 @@ public class OrderContainer {
         return identifiedOrder;
     }
 
+    public static int getOrderId() {
+        return Order.getOrderId();
+    }
+
     public void setIdentifiedOrder(Order identifiedOrder) {
 
             this.identifiedOrder = identifiedOrder;

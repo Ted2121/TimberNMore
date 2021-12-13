@@ -85,6 +85,10 @@ public class OrderController {
         return orderContainer.getIdentifiedOrder();
     }
 
+    public void cancelOrder(Order order){
+        orderContainer.getOrders().remove(order);
+    }
+
     public void setIdentifiedOrder(Order identifiedOrder) {
         orderContainer.setIdentifiedOrder(identifiedOrder);
     }
@@ -121,12 +125,15 @@ public class OrderController {
     }
 
 
-
+    public static int getOrderId() {
+        return OrderContainer.getOrderId();
+    }
 
     public void matchOrderByName(){
 
         try {
-            Database.getInstance().getCustomerController().setIdentifiedCustomer(Database.getInstance().getCustomerController().getCustomerByName(FinalizeOrderMenu.getName()));
+            Database.getInstance().getCustomerController()
+                    .setIdentifiedCustomer(Database.getInstance().getCustomerController().getCustomerByName(FinalizeOrderMenu.getName()));
             setIdentifiedOrder(findOrderByCustomerUsingName(Database.getInstance().getCustomerController().getIdentifiedCustomer()));
         } catch (NullPointerException e) {
             System.err.println("Customer or order could not be found!");
@@ -137,7 +144,8 @@ public class OrderController {
     public void matchOrderById(){
 
         try {
-            Database.getInstance().getCustomerController().setIdentifiedCustomer(Database.getInstance().getCustomerController().getCustomerById(FinalizeOrderMenu.getId()));
+            Database.getInstance().getCustomerController()
+                    .setIdentifiedCustomer(Database.getInstance().getCustomerController().getCustomerById(FinalizeOrderMenu.getId()));
             setIdentifiedOrder(findOrderByCustomerUsingId(Database.getInstance().getCustomerController().getIdentifiedCustomer()));
         } catch (NullPointerException e) {
             System.err.println("Customer or order could not be found!");

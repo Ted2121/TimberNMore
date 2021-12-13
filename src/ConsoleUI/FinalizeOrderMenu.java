@@ -3,12 +3,7 @@ package ConsoleUI;
 import Controller.CustomerController;
 import Controller.ItemController;
 import Controller.OrderController;
-import Model.Customer;
 import Model.Database;
-import Model.ItemContainer;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class FinalizeOrderMenu implements Menu{
 
@@ -18,7 +13,6 @@ public class FinalizeOrderMenu implements Menu{
 
     private static String name;
     private static int id;
-    //private Customer identifiedCustomer;
 
     @Override
     public void runMenu() {
@@ -26,7 +20,6 @@ public class FinalizeOrderMenu implements Menu{
         finalizeOrderMenu();
     }
 
-//TODO add a way for unregistered customers to buy things
     @SuppressWarnings("InfiniteLoopStatement")
     private void finalizeOrderMenu(){
         writeFinalizeOrderMenu();
@@ -115,7 +108,7 @@ public class FinalizeOrderMenu implements Menu{
         }else{
             FinalizeOrderMenu.setName("guest");
             Database.getInstance().getCustomerController().createGuestCustomer();
-            System.out.println(Database.getInstance().getCustomerController().getCustomerByName(getName()));
+            // System.out.println(Database.getInstance().getCustomerController().getCustomerByName(getName()));
         }
         customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName()));
         customerController.grantDiscount();

@@ -1,9 +1,7 @@
 package ConsoleUI;
 
 import Controller.EmployeeController;
-import Controller.ItemController;
 import Model.Database;
-import Model.Employee;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -95,6 +93,8 @@ public interface Menu {
     static void goToLogInMenu(){
         new LogInMenu().runMenu();
     }
+
+    static void goToCancelOrderMenu(){new CancelOrderMenu().runMenu();}
 
     static void goToFinalizeOrderMenu(){
         new FinalizeOrderMenu().runMenu();

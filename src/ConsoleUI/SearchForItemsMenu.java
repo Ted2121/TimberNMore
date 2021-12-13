@@ -1,6 +1,7 @@
 package ConsoleUI;
 
 import Controller.ItemController;
+import Model.Database;
 
 
 public class SearchForItemsMenu implements Menu{
@@ -45,7 +46,7 @@ public class SearchForItemsMenu implements Menu{
     private void searchQuery(){
         System.out.println("Type in the name of the item:");
         String searched = Menu.getStringFromUser();
-        new ItemController().searchForItem(searched);
+        Database.getInstance().getItemController().searchForItem(searched);
 
     }
 

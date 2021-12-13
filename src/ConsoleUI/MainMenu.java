@@ -1,6 +1,5 @@
 package ConsoleUI;
 
-import Controller.OrderController;
 import Model.Database;
 
 public class MainMenu implements Menu {
@@ -29,7 +28,7 @@ public class MainMenu implements Menu {
                     Menu.goToCreateOrderMenu();
                 }
                 case 3 -> Menu.goToUpdateOrderMenu();
-                case 4 -> System.out.println();
+                case 4 -> Menu.goToCancelOrderMenu();
                 case 9 -> writeMainMenu();
                 case 0 -> {
                     System.out.println("Closing Application");
@@ -49,7 +48,7 @@ public class MainMenu implements Menu {
         System.out.println(" (1) Create new order");
         System.out.println(" (2) Return to existing order");
         System.out.println(" (3) Update Order");
-        System.out.println(" (4) Find Order");
+        System.out.println(" (4) Cancel Order");
         System.out.println(" (0) Close Application");
         System.out.print("\n Choice:");
     }

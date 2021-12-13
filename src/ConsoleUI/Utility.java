@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Utility {
 
-    private static DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    private static final DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
     public static DateTimeFormatter getFormat() {
         return format;
