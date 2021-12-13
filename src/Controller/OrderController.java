@@ -93,7 +93,7 @@ public class OrderController {
         orderContainer.setIdentifiedOrder(identifiedOrder);
     }
 
-    // With this method we get an order that matches the customer parameter
+    // With this method we get an order that matches the customer parameter (uses the name of the customer to find a match)
     public Order findOrderByCustomerUsingName(Customer customer){
         Order identifiedOrder = null;
 
@@ -109,6 +109,7 @@ public class OrderController {
         return identifiedOrder;
     }
 
+    // With this method we get an order that matches the customer parameter (uses the id of the customer to find a match)
     public Order findOrderByCustomerUsingId(Customer customer){
         Order identifiedOrder = null;
 
@@ -129,6 +130,8 @@ public class OrderController {
         return OrderContainer.getOrderId();
     }
 
+    // sets the identified customer to the customer whose name matches
+    // and then sets the identified order to the order that has the identified customer
     public void matchOrderByName(){
 
         try {
@@ -141,6 +144,8 @@ public class OrderController {
         }
     }
 
+    // sets the identified customer to the customer whose id matches
+    // and then sets the identified order to the order that has the identified customer
     public void matchOrderById(){
 
         try {

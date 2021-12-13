@@ -5,7 +5,6 @@ import ConsoleUI.Menu;
 import Model.Customer;
 import Model.CustomerContainer;
 import Model.Database;
-import Model.Order;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -83,6 +82,7 @@ public class CustomerController {
         return customer;
     }
 
+    // This method is used to get the customer that has an ID matching the id parameter
     public Customer getCustomerById(int id){
         Customer customer = null;
 
@@ -122,18 +122,23 @@ public class CustomerController {
 
     }
 
+    // This method returns the current Customer - identified by name and id in the Menus
     public Customer getIdentifiedCustomer() {
         return customerContainer.getIdentifiedCustomer();
     }
 
+    // This method sets the identifiedCustomer to the customer we identified using name and id in the Menus
     public void setIdentifiedCustomer(Customer identifiedCustomer) {
         customerContainer.setIdentifiedCustomer(identifiedCustomer);
     }
 
+    // This method creates a guest Customer with the name "Guest" and an id allocated by the incrementing global customer id
     public void createGuestCustomer(){
         customerContainer.createGuestCustomer();
     }
 
+    // This method is used for the guest history ArrayList
+    // to be able to see the guests that exist in the Database so we can use their associated id
     public String getGuestDetails(){
         return customerContainer.getGuestDetails();
     }

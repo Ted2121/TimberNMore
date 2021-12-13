@@ -159,7 +159,7 @@ public interface Menu {
 
     // will be used after order is finalized
     static void deleteSearchHistory(){
-        Database.getInstance().getItemController().getSearchedItems().clear();
+        Database.getInstance().getItemController().clearSearchHistory();
     }
 
 }

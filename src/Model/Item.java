@@ -112,19 +112,25 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item: " + "\n-----------------------------------\n" +
-                "locationCode: " + locationCode + "\n" +
-                "location: " + location + "\n" +
-                "shelfNumber: " + shelfNumber + "\n" +
-                "itemId: " + itemId + "\n" +
-                "itemName: " + itemName + "\n" +
-                "price: " + price.setScale(2, RoundingMode.CEILING) + "\n" +
-                //"quantity: " + quantity + "\n" +
-                "barcode: " + barcode + "\n" +
-                "applyDiscount: " + applyDiscount + "\n" +
-                "discountModifier: " + discountModifier + "\n" +
-                "\n-----------------------------------\n" +
-                "";
+        String stringToReturn = "";
+        try {
+            stringToReturn = "Item: " + "\n-----------------------------------\n" +
+                    "locationCode: " + locationCode + "\n" +
+                    "location: " + location + "\n" +
+                    "shelfNumber: " + shelfNumber + "\n" +
+                    "itemId: " + itemId + "\n" +
+                    "itemName: " + itemName + "\n" +
+                    "price: " + price.setScale(2, RoundingMode.CEILING) + "\n" +
+                    //"quantity: " + quantity + "\n" +
+                    "barcode: " + barcode + "\n" +
+                    "applyDiscount: " + applyDiscount + "\n" +
+                    "discountModifier: " + discountModifier + "\n" +
+                    "\n-----------------------------------\n" +
+                    "";
+        } catch (NullPointerException e) {
+            System.err.println("Something went wrong retrieving Item information");
+        }
+        return stringToReturn;
     }
 
 }

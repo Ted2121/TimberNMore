@@ -19,6 +19,8 @@ public class ItemController {
         itemContainer.addItemToInventory(item);
     }
 
+    // This method finds the item that has a matching name with the parameter
+    // and adds it to an ArrayList of searched items
     public void searchForItem(String name){
         Item matchingItem = null;
         try {
@@ -38,6 +40,7 @@ public class ItemController {
         }
     }
 
+    // This method gets the item from the database that has a barcode matching with the parameter
     public Item scanItem(int barcode){
         Item matchingItem = null;
         try {
@@ -45,8 +48,6 @@ public class ItemController {
                 if(item.getBarcode() == barcode){
 
                     matchingItem = item;
-
-
                 }
             }
             if (matchingItem == null){
@@ -59,20 +60,25 @@ public class ItemController {
         return matchingItem;
     }
 
+    // This method finds the item with a matching barcode and adds it to the itemsInOrder ArrayList
     public void scanAndAdd(int barcode){
 
             OrderContainer.getInstance().createAndGetItemsInOrder().add(scanItem(barcode));
     }
 
+    // This method finds the item with a matching barcode and removes it from the itemsInOrder ArrayList
     public void scanAndRemove(int barcode){
         OrderContainer.getInstance().createAndGetItemsInOrder().remove(scanItem(barcode));
     }
 
+    // This method deletes the item search history once the receipt is printed and the order is in the database
     public void clearSearchHistory(){
         itemContainer.getLocationCodesToFindItems().clear();
         itemContainer.getSearchedItems().clear();
     }
 
+    // This method returns an ArrayList of item details (name and location codes)
+    // to make it easier for the sales assistant to find the items in the store
     public ArrayList<String> getLocationCodesFromSearched(){
 
         for (Item item:
@@ -83,10 +89,12 @@ public class ItemController {
         return getLocationCodesToFindItems();
     }
 
+    // Used by the method getLocationCodesFromSearched()
     public ArrayList<String> getLocationCodesToFindItems() {
         return itemContainer.getLocationCodesToFindItems();
     }
 
+    // Used by the method getLocationCodesFromSearched()
     public ArrayList<Item> getSearchedItems() {
         return itemContainer.getSearchedItems();
     }

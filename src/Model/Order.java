@@ -77,11 +77,17 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order: " + "\n-----------------------------------\n" +
-                "itemsInOrder: " + itemsInOrder + "\n" +
-                "customer: " + customer + "\n" +
-                "orderDateAndTime: " + orderDateAndTime + "\n" +
-                "totalPrice: " + getTotalPrice().setScale(2, RoundingMode.CEILING) + "\n" +
-                "";
+        String details = "";
+        try {
+            details = "Order: " + "\n-----------------------------------\n" +
+                    "itemsInOrder: " + itemsInOrder + "\n" +
+                    "customer: " + customer + "\n" +
+                    "orderDateAndTime: " + orderDateAndTime + "\n" +
+                    "totalPrice: " + getTotalPrice().setScale(2, RoundingMode.CEILING) + "\n" +
+                    "";
+        } catch (NullPointerException e) {
+            System.err.println("Something went wrong retrieving order information");
+        }
+        return details;
     }
 }

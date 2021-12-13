@@ -28,7 +28,7 @@ public class Database {
     Item item1 = new Item('T', 11, "Hammer", true, new BigDecimal("50.00"));
     Item item2 = new Item('D', 12, "Nails", false, new BigDecimal("20.0"));
     Item item3 = new Item('T', 13, "Bolts", false, new BigDecimal("15.0"));
-    Item item4 = new Item('D', 14, "Chair", true, new BigDecimal("10.0"));
+    Item item4 = new Item('D', 14, "Chair", true, new BigDecimal("80.0"));
     Item item5 = new Item('T', 15, "Table", true, new BigDecimal("200.0"));
 
 

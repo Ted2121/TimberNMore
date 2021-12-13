@@ -8,7 +8,6 @@ import Model.Database;
 public class FinalizeOrderMenu implements Menu{
 
     OrderController orderController = new OrderController();
-    ItemController itemController = new ItemController();
     CustomerController customerController = new CustomerController();
 
     private static String name;
@@ -108,7 +107,7 @@ public class FinalizeOrderMenu implements Menu{
         }else{
             FinalizeOrderMenu.setName("guest");
             Database.getInstance().getCustomerController().createGuestCustomer();
-            // System.out.println(Database.getInstance().getCustomerController().getCustomerByName(getName()));
+
         }
         customerController.setIdentifiedCustomer(customerController.getCustomerByName(getName()));
         customerController.grantDiscount();

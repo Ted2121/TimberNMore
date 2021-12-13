@@ -75,12 +75,18 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer: " + "\n-----------------------------------\n" +
-                "name: " + name + "\n" +
-                "customerId: " + customerId + "\n" +
-                "customerType: " + customerType + "\n" +
-                "discountMultiplier: " + discountMultiplier + "\n" +
-                "";
+        String stringToReturn = "";
+        try {
+            stringToReturn =  "Customer: " + "\n-----------------------------------\n" +
+                    "name: " + name + "\n" +
+                    "customerId: " + customerId + "\n" +
+                    "customerType: " + customerType + "\n" +
+                    "discountMultiplier: " + discountMultiplier + "\n" +
+                    "";
+        } catch (NullPointerException e) {
+            System.err.println("Something went wrong retrieving customer information");
+        }
+        return stringToReturn;
     }
 }
 
