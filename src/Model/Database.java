@@ -41,10 +41,10 @@ public class Database {
     }
 
     Employee employee1 = new Employee("Bob", "Dylan", "sales assistant");
-    Employee employee2 = new Employee("Anders", "Olesen", "manager");
-    Employee employee3 = new Employee("Casper", "Olesen", "manager");
-    Employee employee4 = new Employee("Joey", "Joes", "accountant");
-    Employee employee5 = new Employee("Secondbob", "Notdylan", "sales assistant");
+    Employee employee2 = new Employee("Gianna", "Belle", "manager");
+    Employee employee3 = new Employee("Soren", "Olesen", "manager");
+    Employee employee4 = new Employee("Henrik", "Hvarregaard", "manager");
+    Employee employee5 = new Employee("Secondbob", "Notdylan", "accountant");
 
     public void addEmployeesToContainer(){
         employeeController.addEmployee(employee1);

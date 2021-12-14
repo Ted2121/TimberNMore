@@ -6,15 +6,11 @@ public class Run {
 
     public static void main(String[] args) {
 
-    Database.getInstance().populateDatabase();
-      //  System.out.println(Database.getItemDetails());
+        Database.getInstance().populateDatabase();
 
-
-    // bypassing LogInMenu for testing purposes
-
-  // Menu.goToLogInMenu(); //TODO don't forget to uncomment this
+        Menu.goToLogInMenu(); // comment this line to bypass login screen
         Menu.goToMainMenu();
-        
+
     }
 
 
