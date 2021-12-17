@@ -46,8 +46,6 @@ public interface Menu {
         new UpdateOrderMenu().runMenu();
     }
 
-    static  void goToCreateUserMenu() { new CRUD_Employee().runMenu();}
-
     // I put these printing methods here so that 2 different menus can use them
     static void writeIdentifyCustomer(){
         System.out.println();
