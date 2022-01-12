@@ -67,7 +67,7 @@ public class PrototypeGUI extends JFrame {
 		panel.add(textPane);
 		
 		JButton btnNewButton = new JButton("Search Items");
-		btnNewButton.setBounds(698, 83, 136, 43);
+		btnNewButton.setBounds(698, 82, 136, 43);
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Scan Items");
