@@ -8,7 +8,7 @@ public class Run {
 
         Database.getInstance().populateDatabase();
 
-        // Menu.goToLogInMenu(); // comment this line to bypass login screen
+        Menu.goToLogInMenu(); // comment this line to bypass login screen
         Menu.goToMainMenu();
 
     }

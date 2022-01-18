@@ -41,6 +41,7 @@ public class Database {
     }
 
     Employee employee1 = new Employee("Bob", "Dylan", "sales assistant");
+    Employee test = new Employee("Test", "Test", "manager");
     Employee employee2 = new Employee("Gianna", "Belle", "manager");
     Employee employee3 = new Employee("Soren", "Olesen", "manager");
     Employee employee4 = new Employee("Henrik", "Hvarregaard", "manager");
@@ -52,6 +53,7 @@ public class Database {
         employeeController.addEmployee(employee3);
         employeeController.addEmployee(employee4);
         employeeController.addEmployee(employee5);
+        employeeController.addEmployee(test);
     }
 
     Customer customer1 = new Customer("Ted", "regular");
