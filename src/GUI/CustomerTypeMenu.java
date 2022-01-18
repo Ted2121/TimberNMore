@@ -35,16 +35,16 @@ public class CustomerTypeMenu extends JDialog {
 			buttonCancel.setActionCommand("Cancel");
 		}
 		
-		JButton buttonRegestered = new JButton("Regestered Customer");
-		buttonRegestered.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CustomerLogInMenu loginprompt = new CustomerLogInMenu();
-				loginprompt.setVisible(true);
-			}
-		});
-		buttonRegestered.setBounds(123, 74, 190, 52);
-		contentPanel.add(buttonRegestered);
-		
+//		JButton buttonRegestered = new JButton("Regestered Customer");
+//		buttonRegestered.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				CustomerLogInMenu loginprompt = new CustomerLogInMenu();
+//				loginprompt.setVisible(true);
+//			}
+//		});
+//		buttonRegestered.setBounds(123, 74, 190, 52);
+//		contentPanel.add(buttonRegestered);
+//
 		JButton buttonGuest = new JButton("Guest");
 		buttonGuest.setBounds(123, 137, 190, 52);
 		contentPanel.add(buttonGuest);

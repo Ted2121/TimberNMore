@@ -21,17 +21,24 @@ public class MainFrame extends JFrame {
 
     public static void main(String[] args) {
         MainFrame frame = new MainFrame();
+        frame.setLayout(new GridLayout());
+
+        JTabbedPane jTabbedPane = new JTabbedPane();
+
+        CreateOrder createOrder = new CreateOrder();
+
+        jTabbedPane.add("Create Order" ,createOrder);
 
 
 
-        createOrder = new CreateOrder(JTabbedPane.TOP);
 
-        frame.add(createOrder);
+        jTabbedPane.setVisible(true);
 
-        frame.setLayout(null);
+        frame.add(jTabbedPane);
+
 
         frame.setVisible(true);
-       //logInMenu = new LogInMenu();
+       //logInMenu = new LogInMenu(); // Uncomment this
 
 
     }
