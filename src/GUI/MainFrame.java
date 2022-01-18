@@ -8,6 +8,7 @@ import java.awt.*;
 public class MainFrame extends JFrame {
 
         static LogInMenu logInMenu;
+        static CreateOrder createOrder;
 
     public MainFrame(){
         Database.getInstance().populateDatabase();
@@ -23,15 +24,15 @@ public class MainFrame extends JFrame {
 
 
 
+        createOrder = new CreateOrder(JTabbedPane.TOP);
+
+        frame.add(createOrder);
 
         frame.setLayout(null);
-        //frame.setBounds(0, 0, 1920, 1080);
-        frame.setVisible(true);
-        logInMenu = new LogInMenu();
-//        logInMenu.setModal(true);
-//        logInMenu.setVisible(true);
 
-        //logInMenu.setAlwaysOnTop(true);
+        frame.setVisible(true);
+       //logInMenu = new LogInMenu();
+
 
     }
 }

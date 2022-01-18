@@ -72,7 +72,7 @@ public class LogInMenu extends JDialog {
 			}
 		});
 
-		this.setModal(true); // makes user unable to click outside of the window
+		this.setModal(true); // Makes user unable to click outside the window
 		this.setLocationRelativeTo(null); // Makes the popup window appear in the center
 		this.setVisible(true);
 

@@ -11,14 +11,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-import javax.swing.JList;
-import java.awt.List;
-import javax.swing.JTable;
-import javax.swing.JLabel;
-import javax.swing.JPopupMenu;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -89,7 +81,7 @@ public class OrderMenu extends JFrame {
 		JButton buttonCreateOrder = new JButton("New Order");
 		buttonCreateOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CreateOrder orderwin = new CreateOrder();
+				CreateOrder orderwin = new CreateOrder(JTabbedPane.TOP);
 				orderwin.setVisible(true);
 			}
 		});
