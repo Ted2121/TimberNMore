@@ -12,15 +12,15 @@ public class LogInMenu extends JDialog {
 
 	private Font titleFont = new Font("SansSerif", Font.BOLD, 20);
 	//private static JPanel contentPane = new JPanel();
-	private static JLabel labelUsername = new JLabel("Username:");
-	private static JLabel labelPassword = new JLabel("Password:");
-	private static JTextField usernameInput = new JTextField();
-	private static JTextField passwordInput = new JPasswordField();
-	private static JButton buttonLogin = new JButton("Login");
-	private static JLabel labelLogin = new JLabel("Login");
-	private static JLabel labelIncorrectDetails = new JLabel("Invalid username or password.");
-	private static String username;
-	private static String password;
+	private JLabel labelUsername = new JLabel("Username:");
+	private JLabel labelPassword = new JLabel("Password:");
+	private JTextField usernameInput = new JTextField();
+	private JTextField passwordInput = new JPasswordField();
+	private JButton buttonLogin = new JButton("Login");
+	private JLabel labelLogin = new JLabel("Login");
+	private JLabel labelIncorrectDetails = new JLabel("Invalid username or password.");
+	private String username;
+	private String password;
 
 
 	public LogInMenu() {

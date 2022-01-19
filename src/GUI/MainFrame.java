@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
 
 
         frame.setVisible(true);
-       //logInMenu = new LogInMenu(); // Uncomment this
+       // logInMenu = new LogInMenu(); // Uncomment this
 
 
     }
