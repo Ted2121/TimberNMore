@@ -39,6 +39,25 @@ public class ItemController {
             e.printStackTrace();
         }
     }
+    
+    public Item getSearchedItem(String name){
+        Item matchingItem = null;
+        try {
+            for (Item item:itemContainer.getInventory()) {
+                if(item.getItemName().toLowerCase().contains(name.toLowerCase())){
+
+                    matchingItem = item;
+
+                }
+            }
+            if (matchingItem == null){
+                System.err.println("Item not found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return matchingItem;
+    }
 
     // This method gets the item from the database that has a barcode matching with the parameter
     public Item scanItem(int barcode){

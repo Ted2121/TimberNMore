@@ -6,6 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import Controller.ItemController;
+import Model.Database;
+import Model.Item;
+
 import javax.swing.JTabbedPane;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -16,6 +22,7 @@ import javax.swing.SwingConstants;
 import java.awt.Dimension;
 import javax.swing.JTextField;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -27,7 +34,12 @@ public class Main extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable tableItems;
-	private JTextField textField_1;
+	private JTextField textFieldItem;
+	
+	private String itemToSearch;
+	private ItemController itemController = Database.getInstance().getItemController();
+	private Item currentItem;
+	private JTextField textFieldQuantity;
 
 	/**
 	 * Launch the application.
@@ -49,16 +61,19 @@ public class Main extends JFrame {
 	 * Create the frame.
 	 */
 	public Main() {
-		String[] columnNames = {"Item name", "Price per unit", "Quantity", "Total Price"};
 		
-		String[][] data = {
-				{"test", "test1", "test2", "test3"},
-				{"test", "test1", "test2", "test3"},
-				{"test", "test1", "test2", "test3"},
-				{"test", "test1", "test2", "test3"}
-		};
-				
+		Database.getInstance().populateDatabase();
 		
+//		String[] columnNames = {"Item name", "Price per unit", "Quantity", "Total Price"};
+//		
+//		String[][] data = {
+//				{"test", "test1", "test2", "test3"},
+//				{"test", "test1", "test2", "test3"},
+//				{"test", "test1", "test2", "test3"},
+//				{"test", "test1", "test2", "test3"}
+//		};
+//				
+//		
 		
 		setPreferredSize(new Dimension(1920, 1080));
 		setMaximumSize(new Dimension(1920, 1080));
@@ -90,28 +105,55 @@ public class Main extends JFrame {
 		scrollPane.setBounds(31, 221, 305, 261);
 		createOrderTab.add(scrollPane);
 		
-		tableItems = new JTable(data, columnNames);
+		tableItems = new JTable();
 		scrollPane.setViewportView(tableItems);
 		
 		JLabel lblItemName = new JLabel("Item Name");
 		lblItemName.setBounds(31, 83, 113, 14);
 		createOrderTab.add(lblItemName);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(31, 108, 305, 20);
-		createOrderTab.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldItem = new JTextField();
+		textFieldItem.setBounds(31, 108, 219, 20);
+		createOrderTab.add(textFieldItem);
+		textFieldItem.setColumns(10);
 		
 		JButton btnAddItem = new JButton("Add Item");
-		btnAddItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnAddItem.setBounds(355, 107, 89, 23);
+		
+		btnAddItem.setBounds(356, 107, 89, 23);
 		createOrderTab.add(btnAddItem);
+		
+		JLabel lblQuantity = new JLabel("Quantity");
+		lblQuantity.setBounds(260, 83, 46, 14);
+		createOrderTab.add(lblQuantity);
+		
+		textFieldQuantity = new JTextField();
+		textFieldQuantity.setBounds(260, 108, 86, 20);
+		createOrderTab.add(textFieldQuantity);
+		textFieldQuantity.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("New tab", null, panel_1, null);
+		
+		btnAddItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textFieldItem.getText().equals("") || textFieldQuantity.getText().equals("")) {
+					JOptionPane.showMessageDialog(panel_1, "Please fill in all available fields!");;
+				}else {
+					itemToSearch = String.valueOf(textFieldItem.getText());
+					currentItem = itemController.getSearchedItem(itemToSearch);
+					String data[] = {currentItem.getItemName(), 
+							String.valueOf(currentItem.getPrice()), 
+							String.valueOf(lblQuantity.getText()), 
+							String.valueOf(currentItem.getPrice().doubleValue() * Double.valueOf(lblQuantity.getText()))};
+					
+					DefaultTableModel tblModel = (DefaultTableModel)tableItems.getModel();
+					tblModel.addRow(data);
+				
+				}
+				
+			}
+		});
+		
+		tableItems.setPreferredScrollableViewportSize(new Dimension(500, 100));
 	}
 }
