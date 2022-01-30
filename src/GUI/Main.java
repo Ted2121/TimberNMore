@@ -22,6 +22,8 @@ import javax.swing.SwingConstants;
 import java.awt.Dimension;
 import javax.swing.JTextField;
 import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
@@ -40,6 +42,8 @@ public class Main extends JFrame {
 	private ItemController itemController = Database.getInstance().getItemController();
 	private Item currentItem;
 	private JTextField textFieldQuantity;
+	
+	private LogInMenu logInMenu;
 
 	/**
 	 * Launch the application.
@@ -63,6 +67,7 @@ public class Main extends JFrame {
 	public Main() {
 		
 		Database.getInstance().populateDatabase();
+		//logInMenu = new LogInMenu();
 		
 //		String[] columnNames = {"Item name", "Price per unit", "Quantity", "Total Price"};
 //		
@@ -74,12 +79,20 @@ public class Main extends JFrame {
 //		};
 //				
 //		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
 		
+		JMenu mnNewMenu = new JMenu("File");
+		menuBar.add(mnNewMenu);
+		
+		JMenu mnNewMenu_1 = new JMenu("Edit");
+		menuBar.add(mnNewMenu_1);
 		setPreferredSize(new Dimension(1920, 1080));
 		setMaximumSize(new Dimension(1920, 1080));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1012, 673);
+		
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -119,20 +132,17 @@ public class Main extends JFrame {
 		
 		JButton btnAddItem = new JButton("Add Item");
 		
-		btnAddItem.setBounds(356, 107, 89, 23);
+		btnAddItem.setBounds(354, 102, 89, 32);
 		createOrderTab.add(btnAddItem);
 		
 		JLabel lblQuantity = new JLabel("Quantity");
-		lblQuantity.setBounds(260, 83, 46, 14);
+		lblQuantity.setBounds(260, 83, 55, 14);
 		createOrderTab.add(lblQuantity);
 		
 		textFieldQuantity = new JTextField();
 		textFieldQuantity.setBounds(260, 108, 86, 20);
 		createOrderTab.add(textFieldQuantity);
 		textFieldQuantity.setColumns(10);
-		
-		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_1, null);
 		
 		btnAddItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -155,5 +165,21 @@ public class Main extends JFrame {
 		});
 		
 		tableItems.setPreferredScrollableViewportSize(new Dimension(500, 100));
+		
+		JButton btnNewButton_1_4_1 = new JButton("Cancel");
+		btnNewButton_1_4_1.setBounds(833, 421, 85, 32);
+		createOrderTab.add(btnNewButton_1_4_1);
+		
+		JButton btnNewButton_1_3 = new JButton("Finalize Order");
+		btnNewButton_1_3.setBounds(687, 421, 136, 32);
+		createOrderTab.add(btnNewButton_1_3);
+		
+		JButton btnNewButton = new JButton("Search for Item");
+		btnNewButton.setBounds(346, 47, 136, 32);
+		createOrderTab.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Scan Item");
+		btnNewButton_1.setBounds(492, 47, 136, 32);
+		createOrderTab.add(btnNewButton_1);
 	}
 }
