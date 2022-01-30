@@ -44,6 +44,7 @@ public class Main extends JFrame {
 	private JTextField textFieldQuantity;
 	
 	private LogInMenu logInMenu;
+	private JTextField textFieldPrice;
 
 	/**
 	 * Launch the application.
@@ -87,18 +88,18 @@ public class Main extends JFrame {
 		
 		JMenu mnNewMenu_1 = new JMenu("Edit");
 		menuBar.add(mnNewMenu_1);
-		setPreferredSize(new Dimension(1920, 1080));
-		setMaximumSize(new Dimension(1920, 1080));
+		setPreferredSize(new Dimension(1280, 1024));
+		setMaximumSize(new Dimension(1280, 1024));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1012, 673);
+		setBounds(100, 100, 860, 640);
 		
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 11, 986, 622);
+		tabbedPane.setBounds(10, 11, 800, 550);
 		contentPane.add(tabbedPane);
 		
 		JPanel createOrderTab = new JPanel();
@@ -110,12 +111,12 @@ public class Main extends JFrame {
 		createOrderTab.add(lblCustomerName);
 		
 		textField = new JTextField();
-		textField.setBounds(31, 53, 305, 19);
+		textField.setBounds(31, 53, 315, 19);
 		createOrderTab.add(textField);
 		textField.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(31, 221, 305, 261);
+		scrollPane.setBounds(31, 221, 429, 261);
 		createOrderTab.add(scrollPane);
 		
 		tableItems = new JTable();
@@ -126,35 +127,35 @@ public class Main extends JFrame {
 		createOrderTab.add(lblItemName);
 		
 		textFieldItem = new JTextField();
-		textFieldItem.setBounds(31, 108, 219, 20);
+		textFieldItem.setBounds(31, 108, 154, 20);
 		createOrderTab.add(textFieldItem);
 		textFieldItem.setColumns(10);
 		
 		JButton btnAddItem = new JButton("Add Item");
 		
-		btnAddItem.setBounds(354, 102, 89, 32);
+		btnAddItem.setBounds(365, 105, 123, 26);
 		createOrderTab.add(btnAddItem);
 		
 		JLabel lblQuantity = new JLabel("Quantity");
-		lblQuantity.setBounds(260, 83, 55, 14);
+		lblQuantity.setBounds(195, 83, 55, 14);
 		createOrderTab.add(lblQuantity);
 		
 		textFieldQuantity = new JTextField();
-		textFieldQuantity.setBounds(260, 108, 86, 20);
+		textFieldQuantity.setBounds(195, 108, 55, 20);
 		createOrderTab.add(textFieldQuantity);
 		textFieldQuantity.setColumns(10);
 		
 		btnAddItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textFieldItem.getText().equals("") || textFieldQuantity.getText().equals("")) {
-					JOptionPane.showMessageDialog(panel_1, "Please fill in all available fields!");;
+				if(textFieldItem.getText().equals("") 
+						|| textFieldQuantity.getText().equals("") 
+						|| textFieldPrice.getText().equals("")) {
+					JOptionPane.showMessageDialog(contentPane, "Please fill in all available fields!");;
 				}else {
-					itemToSearch = String.valueOf(textFieldItem.getText());
-					currentItem = itemController.getSearchedItem(itemToSearch);
-					String data[] = {currentItem.getItemName(), 
-							String.valueOf(currentItem.getPrice()), 
-							String.valueOf(lblQuantity.getText()), 
-							String.valueOf(currentItem.getPrice().doubleValue() * Double.valueOf(lblQuantity.getText()))};
+					
+					String data[] = {textFieldItem.getText(), 
+							textFieldQuantity.getText(), 
+							textFieldPrice.getText()};
 					
 					DefaultTableModel tblModel = (DefaultTableModel)tableItems.getModel();
 					tblModel.addRow(data);
@@ -167,19 +168,40 @@ public class Main extends JFrame {
 		tableItems.setPreferredScrollableViewportSize(new Dimension(500, 100));
 		
 		JButton btnNewButton_1_4_1 = new JButton("Cancel");
-		btnNewButton_1_4_1.setBounds(833, 421, 85, 32);
+		btnNewButton_1_4_1.setBounds(676, 456, 85, 26);
 		createOrderTab.add(btnNewButton_1_4_1);
 		
 		JButton btnNewButton_1_3 = new JButton("Finalize Order");
-		btnNewButton_1_3.setBounds(687, 421, 136, 32);
+		btnNewButton_1_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JPanel currentOrder = new JPanel();
+				
+				tabbedPane.add(currentOrder);
+				
+			}
+		});
+		btnNewButton_1_3.setBounds(531, 456, 136, 26);
 		createOrderTab.add(btnNewButton_1_3);
 		
 		JButton btnNewButton = new JButton("Search for Item");
-		btnNewButton.setBounds(346, 47, 136, 32);
+		btnNewButton.setBounds(31, 139, 113, 26);
 		createOrderTab.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Scan Item");
-		btnNewButton_1.setBounds(492, 47, 136, 32);
+		btnNewButton_1.setBounds(154, 139, 113, 26);
 		createOrderTab.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Set customer");
+		btnNewButton_2.setBounds(365, 49, 123, 26);
+		createOrderTab.add(btnNewButton_2);
+		
+		JLabel lblNewLabel = new JLabel("Price");
+		lblNewLabel.setBounds(260, 83, 46, 14);
+		createOrderTab.add(lblNewLabel);
+		
+		textFieldPrice = new JTextField();
+		textFieldPrice.setBounds(260, 108, 86, 20);
+		createOrderTab.add(textFieldPrice);
+		textFieldPrice.setColumns(10);
 	}
 }
